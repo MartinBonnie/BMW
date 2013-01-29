@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>OutWeb</display-name>
+	<!--spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring/applicationContext.xml
+		</param-value>
+	</context-param>
+	<!-- 编码的filter，默认编码utf-8 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- hibernate的filter -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 屏蔽字的filter -->
+	<filter>
+		<filter-name>bannedFilter</filter-name>
+		<filter-class>com.zwrx.bmw.filter.BannedFilter</filter-class>
+		<init-param>
+			<param-name>filterParams</param-name>
+			<param-value>skey,content,sdesc,pkey,proddesc,keywords,username,name</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>bannedFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 用户登陆的filter -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.zwrx.bmw.filter.LoginFilter</filter-class>
+		<init-param>
+			<param-name>notFilterDir</param-name>
+			<param-value>
+				jquery.js,Login,logout,viewPasswdQuestion,savePasswdQuestion,customer/account/get_username.jsp,customer/account/get_password.jsp,/updatePasswd, /modify_reg.jsp,/login.jsp,/reg.jsp,/register,/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,/userValidate,/userActivation,/getusername,/validateuser,/validateanswer,/get_username.jsp,/get_password.jsp,/validate_answer.jsp,/customer/album/
+			</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/customer/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/account/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/portal/bill_detail.jsp</url-pattern>
+	</filter-mapping>
+	<!-- 后台管理的filter 
+	<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>com.zwrx.bmw.filter.AdminFilter</filter-class>
+		<init-param>
+			<param-name>notFilterDir</param-name>
+			<param-value>
+				/css,/images,/js,/login,/style,/logout
+			</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/mvc/admin/*</url-pattern>
+	</filter-mapping>
+-->
+	<!-- 用户认证的filter 
+	<filter>
+		<filter-name>AuditFilter</filter-name>
+		<filter-class>com.jadsoft.ngb.filter.AuditFilter</filter-class>
+		<init-param>
+			<param-name>filterDir</param-name>
+			<param-value>
+				/bill_detail.jsp,/customer/product
+			</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuditFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	-->
+	<!-- struts2的filter -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>com.zwrx.bmw.filter.Struts2Filter</filter-class>
+		<init-param>
+			<param-name>notFilterDir</param-name>
+			<param-value>
+				/service/,/mvc/,/pay/
+			</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<!--读取配置文件的servlet -->
+	<servlet>
+		<description>Reading config files</description>
+		<display-name>Config Servlet</display-name>
+		<servlet-name>ConfServlet</servlet-name>
+		<servlet-class>com.zwrx.bmw.servlet.ConfServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/applicationServlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/mvc/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

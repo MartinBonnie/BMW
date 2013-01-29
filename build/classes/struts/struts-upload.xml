@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.multipart.saveDir" value="/tmp"/> 
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<package name="fileUpload" extends="json-default" namespace="/fileUpload">
+		<action name="uploadImage" class="uploadImage" method="uploadImage">			
+			<param name="allowedExtension">
+				jpg,bmp,png,gif,jpeg
+		    </param>
+			<!-- 配置允许上传的文件大小，单位字节 1M -->
+			<param name="maximumSize">1048576</param>
+			<!-- 设置所属模块名称 -->
+			<result name="success">/upload/success.jsp</result>  			
+		</action>
+		<action name="uploadByJson" class="uploadImage"
+			method="uploadByJson">
+		</action>
+	</package>
+</struts>

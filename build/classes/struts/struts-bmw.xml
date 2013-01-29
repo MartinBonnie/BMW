@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<constant name="struts.multipart.saveDir" value="/tmp"/> 
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<package name="bmw-default" extends="json-default" namespace="/">
+		<action name="veriImg" class="validateImgAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+</struts>
