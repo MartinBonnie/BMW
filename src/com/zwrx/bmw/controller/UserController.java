@@ -44,7 +44,7 @@ public class UserController extends BaseController {
 		currentUser.setPassword(password+"333");
 		currentUser.setUsername(username+"222");
 		baseService.save(currentUser);
-		return "123";
+		return "1234";
 	}
 	
 	
