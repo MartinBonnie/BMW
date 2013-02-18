@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>Right Page</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="js/core/jquery.js"></script>
+<script type="text/javascript" src="js/core/common.js"></script>
+<script type="text/javascript" src="js/core/toolkit.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			type : "get",
+			url : "/mvc/admin/summary"
+				+"?ts="+new Date().getTime(),
+			dataType : "json"
+		}).done(function(result){
+			if(result.isTrue) {
+				$("#sum_admin").html(result.tag.adminSum);
+				$("#sum_client").html(result.tag.clientSum);
+				$("#sum_driver").html(result.tag.driverSum);
+				$("#sum_terminal").html(result.tag.terminalSum);
+				$("#sum_car").html(result.tag.vehicleSum);
+				$("#sum_car_deploy").html(result.tag.deploySum);
+				$("#sum_task").html(result.tag.taskSum);
+				$("#sum_log").html(result.tag.logSum);
+				$("#sum_gps").html(result.tag.gpsSum);
+			} else {
+				$.showAlert(result.message, "确定");
+			}
+		});
+	});
+	
+</script>
+</head>
+<body style="margin: 0px 3px 0px 3px" >
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr style="height:30px">
+    <td>
+    	<div class="list_desc">
+			<span>信息概览</span>
+		</div>
+	</td>
+  </tr>
+  <tr>
+    <td>
+    	<div class="userInfo">
+    		Hello大家好啊！！
+		</div>
+	</td>
+  </tr>
+  <tr>
+    <td height="30">
+    	
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

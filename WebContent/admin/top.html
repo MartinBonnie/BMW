@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>Top Page</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="js/core/jquery.js"></script>
+<script type="text/javascript" src="js/core/common.js"></script>
+<script type="text/javascript" src="js/core/toolkit.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#admin_name").html(getCookies("userName"));
+		showTime();
+		bindAction();
+	});
+	showTime = function(){
+		var dateDom = $("#now_time");
+		window.setInterval(function(){
+			var date = new Date();
+			var year = date.getFullYear();
+		    var month = date.getMonth() + 1;
+		    var day = date.getDate();
+		    var hour = date.getHours();
+		    var min = date.getMinutes();
+		    var sec = date.getSeconds();
+		    if (month < 10)  month = "0" + month;
+		    if (day < 10)  day = "0" + day;
+		    if (hour < 10)  hour = "0" + hour;
+		    if (min < 10)  min = "0" + min;
+		    if (sec < 10)  sec = "0" + sec;
+			dateDom.html(year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec);
+		}, 1000);
+	};
+	logout = function(){
+		$.ajax({
+			type : "get",
+			url : "/mvc/admin/logout"
+				+"?ts="+new Date().getTime(),
+			dataType : "json"
+		}).done(function(result){
+			if(result.isTrue) {
+				window.top.location.href = "login.html";
+			} else {
+				$.showAlert(result.message, "确定");
+			}
+		}).fail(function(){
+			$.showAlert("网络繁忙，请稍后再试！", "确定");
+		});
+	}
+	bindAction = function(){
+		var rightPage = window.parent.frames["mainFrame"].frames["rightFrame"];
+		var pwdHtml = '<div id="float_pwd" class="divFloatPanel mini">'
+		+'<div id="add_area" class="divAddData">'
+		+'<div><label>新密码:</label>'
+		+'<input id="add_pwd0" type="password" class="text small" onkeyup="$(this).checkIpt(\'pwd\');" />'
+		+'<div class="err" style="display:none; margin-left: 70px;"><span class="err"></span></div></div><div><label>再确认:</label>'
+		+'<input id="add_pwd1" type="password" class="text small" onkeyup="$(this).checkIpt(\'pwdchk\');" />'
+		+'<span class="err"></span></div>'
+		+'<div><label>登陆密码:</label>'
+		+'<input id="verify_pwd" type="password" class="text small" />'
+		+'<strong style="color: #666;">用于修改权限验证！</strong></div>'
+		+'<div style="margin-top: 15px; text-align: left; ">'
+		+'<input type="button" class="btn bcancel" onclick="$.showAddBg(false); $(\'#float_pwd\').remove();" title="取消" style="margin: 0 6px 0 200px;" />'
+		+'<input type="button" class="btn bconfirm" onclick="modifyPwd();" title="确定" /></div></div></div>';
+		var infoHtml = '<div id="float_info" class="divInfoCard" style="left:50%; top:20%; width:240px; margin-left:-120px;">'
+		+'<div><label>登陆账号名称:</label><span>'+getCookies("userAcc")+'</span></div>'
+		+'<div><label>账号显示昵称:</label><span>'+getCookies("userName")+'</span></div>'
+		+'<div><label>账号创建时间:</label><span>'+parseInt(getCookies("userAddTime")).date()+'</span></div>'
+		+'<div><label>账号更新时间:</label><span>'+parseInt(getCookies("userModifyTime")).date()+'</span></div>'
+		+'<div><label>上次登陆地址:</label><span>'+getCookies("userLastIp")+'</span></div>'
+		+'<div><label>上次登陆时间:</label><span>'+parseInt(getCookies("userLastTime")).date()+'</span></div>'
+		+'<div style="margin-top: 10px; text-align: right; ">'
+		+'<input type="button" class="btn bconfirm" onclick="$.showAddBg(false); $(\'#float_info\').remove();" title="确定" /></div></div>';
+		$("#btn_modifyPwd").click(function(){
+			rightPage.$.showAddBg(true, 99);
+			$(rightPage.document).find("#float_info").remove();
+			$(rightPage.document).find("body").append(pwdHtml).find("#float_pwd").slideDown("fast");
+		});
+		$("#btn_accInfo").click(function(){
+			rightPage.$.showAddBg(true, 99);
+			$(rightPage.document).find("#float_pwd").remove();
+			$(rightPage.document).find("body").append(infoHtml).find("#float_info").slideDown("fast");
+		});
+	};
+	
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="57" style="background:url(images/main_03.gif);"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="378" height="57" style="background:url(images/main_01.gif) no-repeat;">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td width="281" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="33" height="27"><img src="images/main_05.gif" width="33" height="27" /></td>
+            <td width="248" style="background:url(images/main_06.gif) no-repeat;"><table width="225" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td height="17"><div align="right"><a id="btn_modifyPwd" title="修改密码"><img src="images/pass.gif" alt="修改密码" width="69" height="17" /></a></div></td>
+                <td><div align="right"><a id="btn_accInfo" title="账户信息"><img src="images/user.gif" alt="用户信息" width="69" height="17" /></a></div></td>
+                <td><div align="right"><a onclick="logout();" ><img src="images/quit.gif" alt="退出系统" width="69" height="17" /></a></div></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="40" style="background:url(images/main_10.gif);"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="194" height="40" style="background:url(images/main_07.gif) no-repeat;">&nbsp;</td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr class="top_menu" style="visibility: hidden;">
+            <td width="21"><img src="images/main_13.gif" width="19" height="14" /></td>
+            <td width="35"><div align="center"><a href="right.html" target="rightFrame">首页</a></div></td>
+            <td width="21"><img src="images/main_15.gif" width="19" height="14" /></td>
+            <td width="35"><div align="center"><a href="javascript:history.go(-1);">后退</a></div></td>
+            <td width="21"><img src="images/main_17.gif" width="19" height="14" /></td>
+            <td width="35"><div align="center"><a href="javascript:history.go(1);">前进</a></div></td>
+            <td width="21"><img src="images/main_19.gif" width="19" height="14" /></td>
+            <td width="35"><div align="center"><a href="javascript:window.parent.frames['mainFrame'].frames['rightFrame'].location.reload();">刷新</a></div></td>
+            <td width="21"><img src="images/main_21.gif" width="19" height="14" /></td>
+            <td width="35"><div align="center"><a href="help.html" target="_blank">帮助</a></div></td>
+            <td>&nbsp;</td>
+          </tr>
+        </table></td>
+        <td width="248" style="background:url(images/main_11.gif) no-repeat;">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	          <tr class="top_menu">
+	            <td width="16%"></td>
+	            <td width="75%"><div align="center" style="color: #FFFFFF;">当前时间：<span id="now_time">0000-00-00 00:00:00</span></div></td>
+	            <td width="9%">&nbsp;</td>
+	          </tr>
+	        </table>
+		</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="30" background="images/main_31.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="8" height="30"><img src="images/main_28.gif" width="8" height="30" /></td>
+        <td width="147" background="images/main_29.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="24%">&nbsp;</td>
+            <td width="43%" height="20" valign="bottom" class="font1">管理菜单</td>
+            <td width="33%">&nbsp;</td>
+          </tr>
+        </table></td>
+        <td width="39"><img src="images/main_30.gif" width="39" height="30" /></td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="20" valign="bottom"><span class="font1">当前登录用户：<strong id="admin_name"></strong> &nbsp;用户角色：管理员</span></td>
+            <td valign="bottom" class="font1"><div align="right"></div></td>
+          </tr>
+        </table></td>
+        <td width="17"><img src="images/main_32.gif" width="17" height="30" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+
+</body>
+</html>

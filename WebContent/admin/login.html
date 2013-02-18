@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>用户登陆</title>
+<link type="text/css" href="css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="js/core/jquery.js"></script>
+<script type="text/javascript" src="js/core/common.js"></script>
+<script type="text/javascript" src="js/core/toolkit.js"></script>
+<script type="text/javascript">
+	login = function(){
+		var userName = $.trim($("#user_name").val());
+		var userPwd = $.trim($("#user_pwd").val());
+		if(userName.length==0) {
+			$("#user_name").focus();
+			return;
+		} else if(userPwd.length==0) {
+			$("#user_pwd").focus();
+			return;
+		}
+		$.ajax({
+			type : "post",
+			url : "/mvc/admin/login"
+				+"?ts="+new Date().getTime(),
+			dataType : "json",
+			data: {
+				"adminAcc": $("#user_name").val().trim(), 
+				"adminPwd": $("#user_pwd").val().trim()}
+		}).done(function(result){
+			if(result.isTrue) {
+				setCookies("userAcc", $("#user_name").val().trim());
+				setCookies("userName", result.tag.userName);
+				setCookies("userEmail", result.tag.userEmail);
+				setCookies("userLastTime", result.tag.userLastTime);
+				setCookies("userLastIp", result.tag.userLastIp);
+				setCookies("userModifyTime", result.tag.userModifyTime);
+				setCookies("userAddTime", result.tag.userAddTime);
+				var returnUrl = request("returnUrl");
+				// if(returnUrl!="") {
+					// window.top.location.href = returnUrl;
+				// } else {
+					// window.top.location.href = "main.html";
+				// }
+				window.top.location.href = "main.html";
+			} else {
+				$("#user_name").focus();
+				$.showAlert("用户名或密码错误！", "确定");
+			}
+		}).fail(function(){
+			$.showAlert("网络繁忙，请稍后再试！", "确定");
+		});
+	};
+	reset = function(){
+		$("#user_name").val("").focus();
+		$("#user_pwd").val("");
+	};
+</script>
+<style>
+	html,body {height:100%; width:100%; overflow:hidden}
+	body {background: url('images/login_03.gif') repeat-x 0 0px #152753 ; color: #adc9d9; }
+</style>
+</head>
+<body onload="$('#user_name').focus();">
+	<div id="top"> </div>
+  	<div id="center">
+	    <div id="center_left"></div>
+	    <div id="center_middle">
+	      <div class="user">
+	        <label>用户名
+	        	<input type="text" name="user" id="user_name" onkeyup="if(event.keyCode == 13) login();"/>
+	        </label>
+	      </div>
+	      <div class="user">
+	        <label>密　码
+	        	<input type="password" name="pwd" id="user_pwd" onkeyup="if(event.keyCode == 13) login();" />
+	        </label>
+	      </div>
+		  <!--
+		  <div class="user">
+	        <label>验证码
+	        	<input type="text" id="chkCode" maxlength="4" style="width:40px" onkeyup="checkIsLogin(event)" />
+	        </label>
+	        <img src="code.jsp" style="vertical-align:bottom;" onclick="this.src='code.jsp?id='+Math.random()" alt="点击更换" title="点击更换" />
+	      </div>
+		  -->
+	    </div>
+	    <div id="center_middle_right"></div>
+	    <div id="center_submit">
+	      <div class="button"> <img src="images/dl.gif" width="57" height="20" onclick="login()" /> </div>
+	      <div class="button"> <img src="images/cz.gif" width="57" height="20" onclick="reset()" /> </div>
+	    </div>
+	    <div id="center_right"></div>
+  	</div>
+	<div id="footer"></div>
+</body>
+</html>
+
+

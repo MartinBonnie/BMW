@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden;">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<title>Left Page</title>
+		<link type="text/css" href="css/css.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/core/jquery.js"></script>
+		<script type="text/javascript" src="js/core/jquery.effects.core.js"></script>
+		<script type="text/javascript" src="js/core/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="js/core/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="js/core/jquery.ui.accordion.js"></script>
+		<script type="text/javascript" src="../js/core/common.js"></script>
+		<script type="text/javascript">
+			var navDOM;
+			var containDOM;
+			var timer;
+			$(document).ready(function() {
+				navDOM = $('#navigation');
+				containDOM = navDOM.parent();
+				$(window).resize(function(){
+					var height = $(window).height();
+					if(containDOM.height()>height){
+						var timer = window.setInterval(function(){
+							if(containDOM.height()!=$(window).height()) {
+								height = $(window).height();
+								containDOM.height(height);
+								navDOM.find(".ui-state-active").parent().height(height-24*5);
+								window.clearInterval(timer);
+							}
+						}, 100);
+					} 
+					containDOM.height(height);
+					navDOM.find(".ui-state-active").parent().height(height-24*5);
+				});
+				navDOM.accordion({
+					header : '.head',
+					fillSpace : true,
+					// animated: 'bounceslide',
+					autoHeight: true
+				});
+				navDOM.find(".left_list").find('a').click(function() {
+					navDOM.find(".left_list").find('a').removeClass("current");
+					$(this).addClass("current");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div style="height: 100%;">
+			<ul id="navigation">
+				<li>
+					<a class="head">账户管理</a>
+					<ul class="left_list">
+						<li><a href="khxxgl/khlb.html" target="rightFrame">账户信息</a></li>
+						<li><a href="khxxgl/xzkh.html" target="rightFrame">收支明细</a></li>
+						<li><a href="khxxgl/khzz.html" target="rightFrame">资金注入</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="head">客户管理</a>
+					<ul class="left_list" >
+						<li><a href="javascript:unopen();" target="rightFrame">交易问题管理</a></li>
+						<li><a href="cdxxgl/sjxx.html" target="rightFrame">纠纷管理</a></li>
+						<li><a href="cdxxgl/zdpz.html" target="rightFrame">客户咨询管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="head">站内信管理</a>
+					<ul class="left_list">
+						<li><a href="cdjkgl/cldqzt.html;" target="rightFrame">发站内信</a></li>
+						<li><a href="cdjkgl/cllshf.html" target="rightFrame">我的站内信</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="head">推广管理</a>
+					<ul class="left_list">
+						<li><a href="ccddgl/clccrw.html" target="rightFrame">注册推广</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="head">产品管理</a>
+					<ul class="left_list">
+						<li><a href="##" target="rightFrame">审核斗价产品</a></li>
+						<li><a href="##" target="rightFrame">审核特价区产品</a></li>
+						<li><a href="##" target="rightFrame">斗价期次管理</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="head">卖家管理</a>
+					<ul class="left_list">
+                        <li><a href="xtxxpz/zhgl.html" target="rightFrame">新增卖家</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
