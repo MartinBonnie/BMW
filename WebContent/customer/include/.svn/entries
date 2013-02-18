@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6326"
+   name=""
+   committed-date="2012-04-09T10:20:50.484375Z"
+   url="https://202.91.240.34:8443/svn/xhb/NGB/WebContent/customer/include"
+   last-author="renwei"
+   kind="dir"
+   uuid="b0aa6741-f1a3-d94f-a091-25c05d753a55"
+   repos="https://202.91.240.34:8443/svn/xhb"
+   revision="6841"/>
+<entry
+   committed-rev="6010"
+   name="nolog_footer.jsp"
+   text-time="2012-04-14T09:45:59.860425Z"
+   committed-date="2012-02-04T02:16:10.828125Z"
+   checksum="44f84b624acccb991812129cefa13057"
+   last-author="fengtao"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.728417Z"/>
+<entry
+   committed-rev="1289"
+   name="page.jsp"
+   text-time="2012-04-14T09:45:59.872426Z"
+   committed-date="2011-06-18T02:03:20.625000Z"
+   checksum="8ab9faa9608af69556dc48d8d6228c90"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.733418Z"/>
+<entry
+   committed-rev="6192"
+   name="footer.jsp"
+   text-time="2012-04-14T09:46:00.303450Z"
+   committed-date="2012-03-13T07:31:14.828125Z"
+   checksum="050b1bcf98a1e75f6bebc69baf89d4ca"
+   last-author="zhaozhiy"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.749419Z"/>
+<entry
+   committed-rev="3279"
+   name="nolog_head.jsp"
+   text-time="2012-04-14T09:46:00.351453Z"
+   committed-date="2011-07-31T11:22:42.843750Z"
+   checksum="5a808a4540c029b46ccd39e38e7cdaec"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.839424Z"/>
+<entry
+   committed-rev="6326"
+   name="top.jsp"
+   text-time="2012-04-14T09:46:00.361454Z"
+   committed-date="2012-04-09T10:20:50.484375Z"
+   checksum="d2f27b4feee44b38c035525e4ca05abf"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.845424Z"/>
+<entry
+   committed-rev="5099"
+   name="favicon.ico"
+   text-time="2012-04-14T09:46:00.374454Z"
+   committed-date="2011-11-15T10:29:42.703125Z"
+   checksum="b676a917e2621652c9ad17a7b5e32b60"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:45:59.851425Z"/>
+</wc-entries>

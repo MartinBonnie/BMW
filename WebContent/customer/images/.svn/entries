@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6600"
+   name=""
+   committed-date="2012-07-04T08:25:48.156250Z"
+   url="https://202.91.240.34:8443/svn/xhb/NGB/WebContent/customer/images"
+   last-author="zhaozhiy"
+   kind="dir"
+   uuid="b0aa6741-f1a3-d94f-a091-25c05d753a55"
+   repos="https://202.91.240.34:8443/svn/xhb"
+   revision="6841"/>
+<entry
+   committed-rev="5104"
+   name="pay_suc.jpg"
+   text-time="2012-04-14T09:46:07.645870Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="f8f06506a3f21ca2f39f1a0b3ade1c7b"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.821709Z"/>
+<entry
+   committed-rev="5104"
+   name="logo.png"
+   text-time="2012-04-14T09:46:07.657871Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="829809edf96651daaea0c997807846a9"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.826709Z"/>
+<entry
+   committed-rev="5104"
+   name="popHover.png"
+   text-time="2012-04-14T09:46:07.666872Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="861352900c86ff0852fa326bcfa9259b"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.928715Z"/>
+<entry
+   committed-rev="5104"
+   name="b1.png"
+   text-time="2012-04-14T09:46:07.677872Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="6aa82f9cfc631ecfcf1519d1c52e264e"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.935715Z"/>
+<entry
+   committed-rev="5104"
+   name="tit1.gif"
+   text-time="2012-04-14T09:46:07.686873Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="a133d41ef95fa4d8c28844373b7ccf74"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.939716Z"/>
+<entry
+   committed-rev="5104"
+   name="title.gif"
+   text-time="2012-04-14T09:46:07.708874Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="0857bcb62c750930071b6066329a0b35"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:04.946716Z"/>
+<entry
+   committed-rev="5104"
+   name="pay_suc.png"
+   text-time="2012-04-14T09:46:07.742876Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="61f2fee29f46bf498bcc5c0c05cfb9e8"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.175729Z"/>
+<entry
+   committed-rev="5104"
+   name="foot.jpg"
+   text-time="2012-04-14T09:46:07.757877Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="3141ccd3c62a5575634b079e12f6c598"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.180729Z"/>
+<entry
+   committed-rev="5104"
+   name="pic.jpg"
+   text-time="2012-04-14T09:46:07.767877Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="3ccd7315d2f05ace44416e40bb0acc79"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.185730Z"/>
+<entry
+   committed-rev="5104"
+   name="blank.gif"
+   text-time="2012-04-14T09:46:07.782878Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="325472601571f31e1bf00674c368d335"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.189730Z"/>
+<entry
+   committed-rev="5104"
+   name="tipIco.gif"
+   text-time="2012-04-14T09:46:07.792879Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="b697b5048caf599a715d480829aa2764"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.196730Z"/>
+<entry
+   committed-rev="5104"
+   name="sideBtn.gif"
+   text-time="2012-04-14T09:46:07.806880Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="bed708d05ef393b85727448040b742a6"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.202731Z"/>
+<entry
+   committed-rev="5104"
+   name="pay_close.png"
+   text-time="2012-04-14T09:46:07.816880Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="a36cb7fe203a3c8ef39e7485023e8633"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.219732Z"/>
+<entry
+   committed-rev="5104"
+   name="nophoto.jpg"
+   text-time="2012-04-14T09:46:07.825881Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="011556eaa3b50012aa0044772bb9c53a"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.225732Z"/>
+<entry
+   committed-rev="5104"
+   name="nav.png"
+   text-time="2012-04-14T09:46:07.838881Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="a96c3714cab16b950879f8168ae6cef3"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.232732Z"/>
+<entry
+   committed-rev="5104"
+   name="leftBg.gif"
+   text-time="2012-04-14T09:46:07.848882Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="74a1487691b1e77fb6f3e33431998579"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.241733Z"/>
+<entry
+   committed-rev="5104"
+   name="com_bg.png"
+   text-time="2012-04-14T09:46:07.871883Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="a7314b301fba7d251489e0442b7227b5"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.248733Z"/>
+<entry
+   committed-rev="5104"
+   name="close1.png"
+   text-time="2012-04-14T09:46:07.882884Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="057d1d3fb12002395e431e835d6375d7"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.275735Z"/>
+<entry
+   committed-rev="5104"
+   name="dashed.png"
+   text-time="2012-04-14T09:46:08.118897Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="ad83c2a72ab69209b9ad82fdc34ecbd1"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.307737Z"/>
+<entry
+   committed-rev="5104"
+   name="showBg.png"
+   text-time="2012-04-14T09:46:08.127898Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="11918a365beaef9e8d90492c0c26c78e"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.312737Z"/>
+<entry
+   committed-rev="5104"
+   name="bin.gif"
+   text-time="2012-04-14T09:46:08.138899Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="9a8e47a090313ce34cf6b94e282130e3"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.356739Z"/>
+<entry
+   committed-rev="5104"
+   name="letterBg.gif"
+   text-time="2012-04-14T09:46:08.147899Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="17a2b1731ae741f6bd18cd0463478dd1"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.361740Z"/>
+<entry
+   name="reg"
+   kind="dir"/>
+<entry
+   committed-rev="5104"
+   name="ico1.png"
+   text-time="2012-04-14T09:46:08.156900Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="df4cda801ae5c2650ef2278c82877dc5"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.942773Z"/>
+<entry
+   committed-rev="5104"
+   name="ico.gif"
+   text-time="2012-04-14T09:46:08.165900Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="2953e958391b72570ea21c0e9b18f846"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.947773Z"/>
+<entry
+   committed-rev="5104"
+   name="letter.jpg"
+   text-time="2012-04-14T09:46:08.175901Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="7aebe076aef0f44fffb6dd89817b12a8"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.952773Z"/>
+<entry
+   committed-rev="5104"
+   name="stars.png"
+   text-time="2012-04-14T09:46:08.183901Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="4049208576809d4ceed402f5e8024d14"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:05.957774Z"/>
+<entry
+   name="nav"
+   kind="dir"/>
+<entry
+   committed-rev="5104"
+   name="notice.gif"
+   text-time="2012-04-14T09:46:08.195902Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="1cee53fbefc287b8826a2e14a081ad16"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.467860Z"/>
+<entry
+   committed-rev="6600"
+   name="Thumbs.db"
+   text-time="2012-11-06T03:20:28.974236Z"
+   committed-date="2012-07-04T08:25:48.156250Z"
+   checksum="1cd9858ae8dedbbe42e504bf4618cbe4"
+   last-author="zhaozhiy"
+   kind="file"
+   prop-time="2012-11-06T03:20:28.956235Z"/>
+<entry
+   committed-rev="5104"
+   name="t1.gif"
+   text-time="2012-04-14T09:46:08.224903Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="e97478ca435166a4444060a07670b25a"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.472860Z"/>
+<entry
+   committed-rev="5104"
+   name="close.png"
+   text-time="2012-04-14T09:46:08.233904Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="9c5c00b5b72d11c70477f414d7ff26ca"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.479861Z"/>
+<entry
+   committed-rev="5104"
+   name="guest.gif"
+   text-time="2012-04-14T09:46:08.255905Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="807226b84cbb55cb6bd074c8727e6a4e"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.488861Z"/>
+<entry
+   committed-rev="5104"
+   name="smallT.gif"
+   text-time="2012-04-14T09:46:08.264906Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="f15a0e0d8bbce467fb6dcd31528e0b40"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.493862Z"/>
+<entry
+   committed-rev="5104"
+   name="background.png"
+   text-time="2012-04-14T09:46:08.274906Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="c9ef27231d9f49c07c0ddaa8bf9b62fd"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.500862Z"/>
+<entry
+   committed-rev="5104"
+   name="buy.gif"
+   text-time="2012-04-14T09:46:08.282907Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="599fd585478159294c7da34715b015c9"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.507862Z"/>
+<entry
+   committed-rev="5104"
+   name="tit.gif"
+   text-time="2012-04-14T09:46:08.291907Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="35df4b99a21020fbe4424212c7aafe69"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.513863Z"/>
+<entry
+   committed-rev="5104"
+   name="upload.png"
+   text-time="2012-04-14T09:46:08.300908Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="49eb247fd1c9d5546ce71ebe0b839a2f"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.520863Z"/>
+<entry
+   committed-rev="5104"
+   name="imgBox.png"
+   text-time="2012-04-14T09:46:08.310908Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="27e4c7902b1b624ad60de42fd5ec355c"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.526864Z"/>
+<entry
+   committed-rev="5104"
+   name="email.png"
+   text-time="2012-04-14T09:46:08.322909Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="e8b46e6c17b4e579634c5c5feae3f8df"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.531864Z"/>
+<entry
+   committed-rev="5104"
+   name="pic1.jpg"
+   text-time="2012-04-14T09:46:08.332910Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="1758279d8962db23daf13cb6fce8ba0d"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.549865Z"/>
+<entry
+   committed-rev="5104"
+   name="bg.png"
+   text-time="2012-04-14T09:46:08.344910Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="47054477285942b0c0d45a2461ac7c3b"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.557865Z"/>
+<entry
+   committed-rev="5104"
+   name="tou.gif"
+   text-time="2012-04-14T09:46:08.353911Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="8a03017f39e112ca938f9f0c0955a086"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.561866Z"/>
+<entry
+   committed-rev="5104"
+   name="pic2.jpg"
+   text-time="2012-04-14T09:46:08.362911Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="0f7434280490c2c29296cf0a0e4ec2fe"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.569866Z"/>
+<entry
+   committed-rev="5104"
+   name="pic3.jpg"
+   text-time="2012-04-14T09:46:08.383913Z"
+   committed-date="2011-11-15T11:11:54.609375Z"
+   checksum="84c0d9effece6d922189ff0bf2d159e8"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:07.632870Z"/>
+</wc-entries>

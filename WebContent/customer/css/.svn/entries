@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6138"
+   name=""
+   committed-date="2012-03-05T03:29:12.031250Z"
+   url="https://202.91.240.34:8443/svn/xhb/NGB/WebContent/customer/css"
+   last-author="renwei"
+   kind="dir"
+   uuid="b0aa6741-f1a3-d94f-a091-25c05d753a55"
+   repos="https://202.91.240.34:8443/svn/xhb"
+   revision="6841"/>
+<entry
+   committed-rev="6039"
+   name="css.css"
+   text-time="2012-04-14T09:46:01.745533Z"
+   committed-date="2012-02-08T12:05:52.625000Z"
+   checksum="727a50271944ff37ce27d4e59d0da356"
+   last-author="zhaozhiy"
+   kind="file"
+   prop-time="2012-04-14T09:46:01.677529Z"/>
+<entry
+   committed-rev="6138"
+   name="reg.css"
+   text-time="2012-04-14T09:46:01.764534Z"
+   committed-date="2012-03-05T03:29:12.031250Z"
+   checksum="e945b3e3e7885940363c4840d69a54d0"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:01.683529Z"/>
+<entry
+   committed-rev="5697"
+   name="album.css"
+   text-time="2012-04-14T09:46:01.780535Z"
+   committed-date="2011-12-20T11:02:46.131754Z"
+   checksum="74c0c743928c31516acb321a501dea5f"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:01.711531Z"/>
+<entry
+   committed-rev="2701"
+   name="product.css"
+   text-time="2012-04-14T09:46:01.827538Z"
+   committed-date="2011-07-17T06:55:19.578125Z"
+   checksum="67cd1d62f053a252087970e71ed19ea3"
+   last-author="linjianx"
+   kind="file"
+   prop-time="2012-04-14T09:46:01.736532Z"/>
+</wc-entries>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6296"
+   name=""
+   committed-date="2012-04-01T09:41:45.359375Z"
+   url="https://202.91.240.34:8443/svn/xhb/NGB/WebContent/customer/js"
+   last-author="zhaozhiy"
+   kind="dir"
+   uuid="b0aa6741-f1a3-d94f-a091-25c05d753a55"
+   repos="https://202.91.240.34:8443/svn/xhb"
+   revision="6841"/>
+<entry
+   committed-rev="6296"
+   name="xheditor.jsp"
+   text-time="2012-04-14T09:46:09.761991Z"
+   committed-date="2012-04-01T09:41:45.359375Z"
+   checksum="5feae08b1b7760633828a34ae46871c8"
+   last-author="zhaozhiy"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.468975Z"/>
+<entry
+   committed-rev="902"
+   name="jquery.MultiFile.js"
+   text-time="2012-04-14T09:46:09.790993Z"
+   committed-date="2011-06-01T14:06:24.093750Z"
+   checksum="f8031f3b01150e0b9679b37fe6ec6114"
+   last-author="xhb"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.475975Z"/>
+<entry
+   name="xheditor"
+   kind="dir"/>
+<entry
+   committed-rev="4869"
+   name="iepngfix.htc"
+   text-time="2012-04-14T09:46:09.894999Z"
+   committed-date="2011-11-03T13:07:53.125000Z"
+   checksum="ba4313c5e9a4892dde716b58451f479d"
+   last-author="shilei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.525978Z"/>
+<entry
+   committed-rev="4203"
+   name="index_ad.js"
+   text-time="2012-04-14T09:46:09.906000Z"
+   committed-date="2011-08-30T11:08:02.631050Z"
+   checksum="eb60100e74ecd17c40d0eece8bb21e50"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.532978Z"/>
+<entry
+   committed-rev="5529"
+   name="news_push.js"
+   text-time="2012-04-14T09:46:09.980004Z"
+   committed-date="2011-12-08T09:54:00.843750Z"
+   checksum="64fa9869688dc679cc6ea36911eb1f2c"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.536978Z"/>
+<entry
+   committed-rev="4484"
+   name="js.js"
+   text-time="2012-04-14T09:46:09.989004Z"
+   committed-date="2011-10-08T03:48:50.562500Z"
+   checksum="3d7bb54f82a81c1271e8c1b04fe0a443"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.543979Z"/>
+<entry
+   committed-rev="5347"
+   name="reg.js"
+   text-time="2012-04-14T09:46:10.388027Z"
+   committed-date="2011-11-26T05:06:24.890625Z"
+   checksum="a02a8aaca6fcc259cff1d8ae002a901d"
+   last-author="linjianx"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.553979Z"/>
+<entry
+   committed-rev="5849"
+   name="jquery.js"
+   text-time="2012-04-14T09:46:10.403028Z"
+   committed-date="2011-12-27T13:46:30.173966Z"
+   checksum="b03a5ad5773ca04c87682009d15050b6"
+   last-author="shilei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.659986Z"/>
+<entry
+   committed-rev="913"
+   name="jquery.form.js"
+   text-time="2012-04-14T09:46:10.439030Z"
+   committed-date="2011-06-02T12:18:50.984375Z"
+   checksum="a9f9294e8fe70dd061206f9a424316ce"
+   last-author="xhb"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.670986Z"/>
+<entry
+   committed-rev="5602"
+   name="slider.js"
+   text-time="2012-04-14T09:46:10.451031Z"
+   committed-date="2011-12-10T09:08:06.062500Z"
+   checksum="b94d56e6f84dbce8e5405c831f3a526f"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.675986Z"/>
+<entry
+   committed-rev="991"
+   name="modify_reg.js"
+   text-time="2012-04-14T09:46:10.462031Z"
+   committed-date="2011-06-10T13:35:31.440105Z"
+   checksum="ab575296ee88af84feb936b4501a4b5f"
+   last-author="xhb"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.693987Z"/>
+<entry
+   committed-rev="5763"
+   name="pagination.js"
+   text-time="2012-04-14T09:46:10.476032Z"
+   committed-date="2011-12-23T15:07:39.687500Z"
+   checksum="52797de71b1408ff5b919f5e9257a7d6"
+   last-author="shilei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.698988Z"/>
+<entry
+   committed-rev="5600"
+   name="more_news_push.js"
+   text-time="2012-04-14T09:46:10.487033Z"
+   committed-date="2011-12-10T08:49:58.625000Z"
+   checksum="bb4cbc5d6eb88490b182386bd89e3403"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.702988Z"/>
+<entry
+   committed-rev="4994"
+   name="scroll.js"
+   text-time="2012-04-14T09:46:10.502034Z"
+   committed-date="2011-11-10T10:35:51.531250Z"
+   checksum="6e1e3cadb766393447d049dfefa75794"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.707988Z"/>
+<entry
+   committed-rev="902"
+   name="jquery.MetaData.js"
+   text-time="2012-04-14T09:46:10.512034Z"
+   committed-date="2011-06-01T14:06:24.093750Z"
+   checksum="8fc1f07ec1afdf4cfa989486c8ba36ae"
+   last-author="xhb"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.711989Z"/>
+<entry
+   committed-rev="973"
+   name="send_msg.js"
+   text-time="2012-04-14T09:46:10.531035Z"
+   committed-date="2011-06-07T13:07:48.203125Z"
+   checksum="d77206d57df6c7549374946e1b4f6ab3"
+   last-author="xhb"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.716989Z"/>
+<entry
+   committed-rev="5557"
+   name="album.js"
+   text-time="2012-04-14T09:46:10.545036Z"
+   committed-date="2011-12-10T03:46:19.562500Z"
+   checksum="221bf11a92464236f7baa7b3b855ac3f"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.724989Z"/>
+<entry
+   committed-rev="5557"
+   name="customer.js"
+   text-time="2012-04-14T09:46:10.556037Z"
+   committed-date="2011-12-10T03:46:19.562500Z"
+   checksum="2908a0efbff3367adbe37d1be7b5cb33"
+   last-author="jiangyix"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.730990Z"/>
+<entry
+   committed-rev="5937"
+   name="assets.js"
+   text-time="2012-04-14T09:46:10.573038Z"
+   committed-date="2011-12-31T13:54:09.062500Z"
+   checksum="989af87d6dd7b1e58b3f4064a6f3ca74"
+   last-author="shilei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.736990Z"/>
+<entry
+   committed-rev="4704"
+   name="index_news.js"
+   text-time="2012-04-14T09:46:10.602039Z"
+   committed-date="2011-10-24T05:30:09.806187Z"
+   checksum="9a2c41e6129a401aa79d32cf2683e7cc"
+   last-author="renwei"
+   kind="file"
+   prop-time="2012-04-14T09:46:09.742990Z"/>
+</wc-entries>
