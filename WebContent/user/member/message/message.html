@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>空间状态</title> 
+		<link rel="stylesheet" href="/resource/member/css/style.css" type="text/css" /> 
+		<link rel="stylesheet" href="/resource/member/css/invalid.css" type="text/css" />	
+		<link rel="stylesheet" href="/resource/member/css/blue.css" type="text/css" />
+		<link rel="stylesheet" href="/resource/member/css/visualize.css" type="text/css" />
+		<script type="text/javascript" src="/resource/member/js/core/jquery.min.js"></script> 
+		<script type="text/javascript" src="/resource/member/js/core/jquery.visualize.js"></script> 
+		<script type="text/javascript" src="/resource/member/js/core/jquery.visualize.tooltip.js"></script> 
+		<script type="text/javascript" src="/resource/member/js/core/common.js"></script> 
+		<script type="text/javascript" src="/resource/member/js/core/toolkit.js"></script> 
+		<!-- Internet Explorer Fixes Stylesheet --> 
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="/resource/member/css/ie.css" type="text/css" />
+		<![endif]--> 
+		<!--[if IE]><script type="text/javascript" src="/resource/member/js/core/excanvas.js"></script><![endif]-->	
+		<!-- Internet Explorer .png-fix --> 
+		<!--[if IE 6]>
+			<script type="text/javascript" src="/resource/member/js/core/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]--> 
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#sel_all_msg').bind('click', function () {
+				if($(this).prop("checked")) {
+					$('#msg_data').find('input').prop("checked", true);
+				} else {
+					$('#msg_data').find('input').prop("checked", false);
+				}
+			});
+			//searchFile(1);
+		});
+		var PAGE_SIZE = {"msg": 10};
+		var CUR_PAGE = {"msg": 1};
+		var ORDER_NAME = {"msg": "addTime"};
+		var ORDER_SORT = {"msg": true};
+
+		searchMsg = function(page){
+			CUR_PAGE.msg = page;
+			$.ajax({
+				type : "get",
+				async: false,
+				url : "/web/member/message/getMsgList",
+				dataType : "json",
+				data : {"month": DATA_MONTH.msg, "pageNum": CUR_PAGE.msg, "pageSize": PAGE_SIZE.msg, "orderName": ORDER_NAME.msg, "orderSort": ORDER_SORT.msg},
+				success : function(result) {
+					if(result.isTrue){
+						var totalPage = Math.ceil(result.tag*1.0/PAGE_SIZE.msg);
+						$('#page_msg').initPagination('searchFile', totalPage, CUR_PAGE.msg);
+						var html = "";
+						for(var i=0; i<result.items.length; i++){
+							var obj = result.items[i];
+							html+="<tr id=\"msg_"+obj.id+"\"><td><input type=\"checkbox\" /></td>"
+								+"<td style=\"text-align: right;\">"+((CUR_PAGE.msg-1)*PAGE_SIZE.msg+1+i)+"</td>"
+								+"<td style=\"text-align: left;\">"+obj.name+"</td>"
+								+"<td style=\"text-align: right;\">"+obj.size+"</td>"
+								+"<td>"+obj.type+"</td>"
+								+"<td>"+obj.addTime+"</td>"
+								+"<td class=\"delete\"><a onclick=\"delFile('"+obj.id+"')\">删除</a></td></tr>";
+						}
+						if(result.items.length==0) {
+							html = "<tr><td colspan=\"10\"><strong>暂无数据</strong></td></tr>";
+						}
+						$('#msg_data').html(html);
+					} else {
+						eval('(' + result.message + ')');
+					}
+				},
+				error : function() {
+					alert("网络繁忙，请稍后再试！");
+				}
+			});
+		};
+		changeMsgSort = function(row){
+			ORDER_SORT.msg = !ORDER_SORT.msg;
+			ORDER_NAME.msg = row;
+			searchFile(1);
+		};
+		delMsg = function(id){
+			$.ajax({
+				type : "get",
+				url : "/web/member/message/delMsg",
+				dataType : "json",
+				data : {"id": id},
+				success : function(result) {
+					if(result.isTrue){
+						if(!result.message.isEmpty()){
+							$.showPrompt("warning", "有几项操作失败，请检查后再试！");
+						}
+						var sucItems = result.tag.split("|");
+						for(var i=0; i<sucItems.length; i++){
+							$('#msg_'+sucItems[i]).remove();
+						}
+					} else {
+						eval('(' + result.message + ')');
+					}
+				},
+				error : function() {
+					alert("网络繁忙，请稍后再试！");
+				}
+			});
+		};
+		delSelMsg = function(){
+			var ids = "";
+			$('#msg_data').find("input:checked").each(function(){
+				ids+=$(this).attr("id")+"|";
+			});
+			if(ids.length>0) {
+				delMsg(ids.substring(0, ids.length-1));
+			} else {
+				$.showPrompt("warning", "请选择至少一项！");
+			}
+		};
+		
+		</script> 
+	</head> 
+  
+	<body>
+		<div id="body-wrapper">
+			<div id="sidebar">
+			</div> <!-- End #sidebar --> 
+			<script type="text/javascript">
+				$("#sidebar").load("/resource/member/include/left.html", function(){
+					$.setMenu(1, 0);
+				});
+			</script>
+			<div id="main-content"> <!-- Main Content Section with everything --> 
+			
+				<div class="block">
+					<div class="block_head">
+						<div class="bheadl"></div>
+						<div class="bheadr"></div>
+						<h2>站内信列表</h2>
+						<ul>
+							<li class="nobg active">您还有5条未读信息</li>
+						</ul>
+					</div>		<!-- .block_head ends -->
+					<div class="block_content filter" style="border-bottom: 1px solid #ddd; padding: 5px 20px; display: none;">
+						<p>
+							<label>月份</label> 
+							<input type="text" id="msg_year" class="text" style="width:60px; visibility: hidden; " />
+							<input type="text" id="msg_month" class="text" style="width:40px; visibility: hidden;" />
+							<a onclick="changeMsgMonth();" class="button">确定</a>
+						</p>
+					</div>		<!-- .block_content ends -->
+					<div class="block_content" id="msg_table">
+						<table>
+							<thead>
+								<tr>
+									<th width="10"><input id="sel_all_msg" type="checkbox" /></th>
+									<th>序号</th>
+									<th><a onclick="changeMsgSort('title')">标题</a></th>
+									<th>内容</th>
+									<th><a onclick="changeMsgSort('type')">发送人</a></th>
+									<th><a onclick="changeMsgSort('time')">消息日期</a></th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="msg_data">
+								<!--  
+								<tr>
+									<td><input type="checkbox" /></td>
+									<td style="text-align: left;">1</td>
+									<td style="text-align: right;">20.50</td>
+									<td style="text-align: right;">20</td>
+									<td>ray001</td>
+									<td>网银</td>
+									<td>shdjfhsjkdhfsdfkjhsdhf</td>
+									<td>192.168.1.188</td>
+									<td>2012-05-03 10:23:45</td>
+									<td class="delete"><a href="#">删除</a></td>
+								</tr>-->
+							</tbody>
+						</table>
+						<div class="tableactions form">
+							<input type="button" class="submit tiny" value="删除所选项目" onclick="delSelMsg();" />
+						</div>		<!-- .tableactions ends -->
+						<div id="page_msg" class="pagination right"></div>	
+						<!-- .pagination ends -->
+					</div>		<!-- .block_content ends -->
+					<div class="bendl"></div>
+					<div class="bendr"></div>
+				</div>		<!-- .block ends -->
+		
+			
+			
+				<jsp:include page="/resource/member/include/footer.html"></jsp:include>
+			</div> <!-- End #main-content --> 
+		</div>
+		
+	</body> 
+</html> 
