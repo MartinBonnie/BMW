@@ -1,7 +1,5 @@
 package com.zwrx.bmw.models;
 
-// Generated 2011-4-16 16:53:44 by Hibernate Tools 3.3.0.GA
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,9 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
 import org.hibernate.annotations.GenericGenerator;
-
 import com.zwrx.bmw.common.CommonConst;
 import com.zwrx.bmw.service.BaseService;
 import com.zwrx.bmw.util.BeansFactory;
@@ -25,15 +21,16 @@ import com.zwrx.bmw.util.StringUtil;
 @Table(name = "bmw_syscode")
 public class BwmSyscode implements java.io.Serializable {
 
-	private String syscodeId;
-	private String type;
-	private String class_;
-	private String fatherdict;
-	private String name;
-	private String sdesc;
-	private String sign;
-	private String state;
-	private String content;
+	private static final long serialVersionUID = 1L;
+	private String syscodeId;		//数据字典ID
+	private String type;			//类型
+	private String class_;			//级别 
+	private String fatherdict;		//上级字典
+	private String name;			//名称
+	private String sdesc;			//描述
+	private String sign;			//标识
+	private String state;			//状态
+	private String content;			//内容
 
 	public BwmSyscode() {
 	}

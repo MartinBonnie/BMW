@@ -22,27 +22,15 @@
 		}
 		$.ajax({
 			type : "post",
-			url : "/mvc/admin/login"
+			url : "/admin/loginAdmin"
 				+"?ts="+new Date().getTime(),
 			dataType : "json",
 			data: {
-				"adminAcc": $("#user_name").val().trim(), 
-				"adminPwd": $("#user_pwd").val().trim()}
+				"username": $("#user_name").val().trim(), 
+				"password": $("#user_pwd").val().trim()}
 		}).done(function(result){
+			result = eval('(' + result + ')');
 			if(result.isTrue) {
-				setCookies("userAcc", $("#user_name").val().trim());
-				setCookies("userName", result.tag.userName);
-				setCookies("userEmail", result.tag.userEmail);
-				setCookies("userLastTime", result.tag.userLastTime);
-				setCookies("userLastIp", result.tag.userLastIp);
-				setCookies("userModifyTime", result.tag.userModifyTime);
-				setCookies("userAddTime", result.tag.userAddTime);
-				var returnUrl = request("returnUrl");
-				// if(returnUrl!="") {
-					// window.top.location.href = returnUrl;
-				// } else {
-					// window.top.location.href = "main.html";
-				// }
 				window.top.location.href = "main.html";
 			} else {
 				$("#user_name").focus();
