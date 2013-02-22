@@ -39,7 +39,7 @@ public class BmwMailTemplate implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "att_id", unique = true, nullable = false, length = 32)
+	@Column(name = "mail_template_id", unique = true, nullable = false, length = 32)
 	@GenericGenerator(name="idGenerator", strategy="uuid")
 	@GeneratedValue(generator="idGenerator")
 	public String getMailTemplateId() {

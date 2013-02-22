@@ -23,7 +23,7 @@ public class BwmAdmanage implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private String adId;			//广告ID
 	private String posId;			//位置Id  对应Syscode
-	private String adType;			//广告类型
+	private String type;			//广告类型
 	private String adPath;			//广告路径
 	private Date addTime;			//添加时间
 	private String adTitle;			//广告标题
@@ -53,13 +53,13 @@ public class BwmAdmanage implements java.io.Serializable {
 		this.adId = adId;
 	}
 
-	@Column(name = "ad_type", length = 2)
-	public String getAdType() {
-		return this.adType;
+	@Column(name = "type", length = 2)
+	public String getType() {
+		return this.type;
 	}
 
-	public void setAdType(String adType) {
-		this.adType = adType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Column(name = "state", length = 2)

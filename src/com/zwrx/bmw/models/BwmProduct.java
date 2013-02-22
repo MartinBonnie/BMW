@@ -175,7 +175,7 @@ public class BwmProduct implements java.io.Serializable {
 		this.stock = stock;
 	}
 
-	@Column(name = "unit", length = 50)
+	@Column(name = "unit", length = 20)
 	public String getUnit() {
 		return unit;
 	}

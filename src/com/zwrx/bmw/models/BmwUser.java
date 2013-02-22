@@ -128,7 +128,7 @@ public class BmwUser implements java.io.Serializable {
 		this.pwdAnswer = pwdAnswer;
 	}
 
-	@Column(name = "email", length = 100)
+	@Column(name = "email", length = 50)
 	public String getEmail() {
 		return email;
 	}
@@ -182,7 +182,7 @@ public class BmwUser implements java.io.Serializable {
 		this.qq = qq;
 	}
 
-	@Column(name = "msn", length = 32)
+	@Column(name = "msn", length = 20)
 	public String getMsn() {
 		return msn;
 	}
@@ -200,7 +200,7 @@ public class BmwUser implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	@Column(name = "cellphone", length = 12)
+	@Column(name = "cellphone", length = 11)
 	public String getCellphone() {
 		return cellphone;
 	}

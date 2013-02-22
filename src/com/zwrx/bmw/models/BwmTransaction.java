@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity
-@Table(name = "bmw_bill")
+@Table(name = "bmw_transaction")
 public class BwmTransaction implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
