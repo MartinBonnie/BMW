@@ -314,9 +314,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>,
 	// 把内容里的图片对照存在attachment表里的记录，存在状态改成01,不存在改成00
 	public void setUploadState(String content) {
 		BmwAttachment att = new BmwAttachment();
-		att.setBmwUserId(getCurrentUser().getUserId());
+		att.setUserId(getCurrentUser().getUserId());
 		att.setBelongType("相册管理");//注意修改
-		att.setFiledesc("xheditor");
 		att.setState(CommonConst.STATE_INIT);
 		List<BmwAttachment> list = baseService.findByExample(att);
 		for (BmwAttachment at : list) {

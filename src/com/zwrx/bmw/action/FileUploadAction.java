@@ -134,8 +134,7 @@ public class FileUploadAction<T> extends BaseAction<T> {
 		String newFilename = getUUIDFilename(filename);
 		attachment.setState(CommonConst.STATE_INIT);
 		attachment.setUploadTime(new Date());
-		attachment.setBmwUserId(getCurrentUser().getUserId());
-		attachment.setFilename(filename);
+		attachment.setUserId(getCurrentUser().getUserId());
 		String dstPath = dstDir + CommonConst.SEP + newFilename;
 		File dstFile = new File(dstPath);
 		copy(file, dstFile);
@@ -169,8 +168,7 @@ public class FileUploadAction<T> extends BaseAction<T> {
 			String newFilename = getUUIDFilename(fileList.get(i).getName());
 			attachment.setState(CommonConst.STATE_INIT);
 			attachment.setUploadTime(new Date());
-			attachment.setBmwUserId(getCurrentUser().getUserId());
-			attachment.setFilename(fileList.get(i).getName());
+			attachment.setUserId(getCurrentUser().getUserId());
 			String dstPath = dstDir + CommonConst.SEP + newFilename;
 			File dstFile = new File(dstPath);
 			attachment.setFileSize(new BigDecimal(dstFile.length()));
@@ -212,15 +210,12 @@ public class FileUploadAction<T> extends BaseAction<T> {
 				String ip = localhost.getHostAddress();
 				// 修改attachment表里
 				BmwAttachment att = new BmwAttachment();
-				att.setBmwUserId(getCurrentUser().getUserId());
+				att.setUserId(getCurrentUser().getUserId());
 				att.setBelongType("相册类型");//注意修改
 //				att.setBelongId(returnAlbumId());
 				att.setType(CommonConst.PICTURE);
 				att.setServerPath(savingFolder + "/" + newFilename);
 				att.setUploadTime(new Date());
-				att.setFilename(filedataFileName.get(i));
-				att.setServerIp(ip);
-				att.setFiledesc("xheditor");
 				att.setFileSize(new BigDecimal(dstFile.length()));
 				
 				att.setState(CommonConst.STATE_INIT);
