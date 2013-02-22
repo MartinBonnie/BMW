@@ -1,20 +1,20 @@
 package com.zwrx.bmw.action.admin.user;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import net.sf.json.JSONObject;
 import com.zwrx.bmw.action.BaseAction;
 import com.zwrx.bmw.models.BmwAdmin;
 import com.zwrx.bmw.util.ExecuteResult;
-import com.zwrx.bmw.util.MD5EncryptUtil;
-import com.zwrx.bmw.common.CommonConst;
 /**
  * 本AdminAction类主要负责对管理员的登陆、注销、修改账号、密码等操作
  * @author zhaozhiyang
  *
  */
 public class AdminAction extends BaseAction<BmwAdmin> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 处理admin的登陆
