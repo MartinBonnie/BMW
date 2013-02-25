@@ -37,6 +37,7 @@ public class CommonConst {
 	public static String SUCCESS_DELETE = "删除成功！";
 	public static String SUCCESS_ADD="添加成功!";
 	public static String SUCCESS_EDIT="修改成功!";
+	
 	/**
 	 * 网站同步的变量
 	 */

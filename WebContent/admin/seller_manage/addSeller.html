@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>新增客户</title>
+<link type="text/css" href="../css/css.css" rel="stylesheet" />
+<link type="text/css" href="../js/datepicker/datepicker.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/core/jquery.js"></script>
+<script type="text/javascript" src="../js/core/common.js"></script>
+<script type="text/javascript" src="../js/core/toolkit.js"></script>
+<script type="text/javascript" src="../js/core/validate.js"></script>
+<script type="text/javascript" src="../js/core/select.js"></script>
+<script type="text/javascript" src="../js/datepicker/datepicker.js"></script>
+<script type="text/javascript">
+	var PAGE_PARAM = {
+		"addArea": null
+	};
+	$(document).ready(function() {
+		PAGE_PARAM.addArea = $("#add_area");
+	});
+	
+	reset = function(){
+		PAGE_PARAM.addArea.find("input").val("");
+		PAGE_PARAM.addArea.find("span").empty();
+	};
+	
+	save = function(){
+		PAGE_PARAM.addArea.find("input").trigger("keyup");
+		if(PAGE_PARAM.addArea.find("input.err").size()>0) {
+			$.showAlert("还有内容没有填写正确，请根据红色字体提示进行修改后再保存！", "确定", function(){
+				$.showAddBg(false);
+			});
+			return;
+		}
+		var postData = {};
+		postData.clientId = PAGE_PARAM.curId;
+		postData.clientName = $("#add_name").val().trim();
+		postData.clientAge = $("#add_age").val().trim();
+		postData.clientGender = $("#add_gender").val().trim();
+		postData.clientCompany = $("#add_company").val().trim();
+		postData.clientEmail = $("#add_email").val().trim();
+		postData.clientQq = $("#add_qq").val().trim();
+		postData.clientCellphone = $("#add_cellphone").val().trim();
+		postData.clientPhone = $("#add_phone").val().trim();
+		postData.clientMemo = $("#add_memo").val().trim();
+		$.showAddBg(true, 1000, true);
+		$.ajax({
+			type : "post",
+			url : "/web/client/add"
+				+"?ts="+new Date().getTime(),
+			dataType : "json",
+			data: postData
+		}).done(function(result){
+			$.showAlert(result.message, "确定");
+			if(result.isTrue) {
+				reset();
+			} 
+		}).fail(function(){
+			$.showAlert("网络繁忙，请稍后再试！", "确定");
+		});
+	};
+	
+	
+</script>
+</head>
+<body style="margin: 0px 3px 0px 3px">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr style="height:30px">
+    <td>
+    	<div class="list_desc">
+    		<span class="option">
+    			<a href="listSeller.html" class="url" title="客户列表">卖家列表</a></span>
+			<span>新增卖家: <a class="url">输入框后面带<strong style="color: red;">*</strong>的为必填项</a></span>
+		</div>
+	</td>
+  </tr>
+  <tr>
+    <td>
+    	<div id="add_area" class="divAddData">
+			<div>
+				<label>用户名:</label>
+				<input id="add_username" type="text" class="tiny" onkeyup="$(this).checkIpt('username');" />
+				<strong style="color: red;">*</strong>
+				<span class="err">&nbsp;</span>
+			</div>
+			<div>
+				<label>性别:</label>
+				<select id="add_type" class="tiny">
+					<option value="01" selected="selected">一般卖家</option>
+					<option value="02">超级卖家</option>
+				</select>
+			</div>
+			<div>
+				<label>姓名:</label>
+				<input id="add_username" type="text" class="text small" onkeyup="$(this).checkIpt('name');" />
+				<span class="err">&nbsp;</span>
+			</div>
+			<div>
+				<label>Email:</label>
+				<input id="add_email" type="text" class="text middle" onkeyup="$(this).checkIpt('email');" />
+				<span class="err">&nbsp;</span>
+			</div>
+			<div>
+				<label>QQ:</label>
+				<input id="add_qq" type="text" class="text small" onkeyup="$(this).checkIpt('qq');" />
+				<span class="err">&nbsp;</span>
+			</div>
+			<div>
+				<label>手机:</label>
+				<input id="add_cellphone" type="text" class="text small" onkeyup="$(this).checkIpt('cellphone');" />
+				<strong style="color: red;">*</strong>
+				<span class="err">&nbsp;</span>
+			</div>
+			<div>
+				<label>固定电话:</label>
+				<input id="add_phone" type="text" class="text small" onkeyup="$(this).checkIpt('phone');" />
+				<span class="err"></span>
+			</div>
+		</div>
+	</td>
+  </tr>
+  <tr>
+  <td height="30">
+  	<div style="margin-top: 15px; text-align: left; ">
+		<input type="button" class="btn reset" onclick="reset();" title="重置" style="margin: 0 20px 0 364px;" />
+		<input type="button" class="btn bconfirm" onclick="save();" title="确定" />
+	</div>
+  </td>
+  </tr>
+</table>
+
+</body>
+</html>
