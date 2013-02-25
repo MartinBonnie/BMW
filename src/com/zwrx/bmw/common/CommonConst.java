@@ -32,6 +32,11 @@ public class CommonConst {
 	public static String STATE_NORMAL = "01";									//正常
 	public static String STATE_DEL = "09";										//删除
 	
+	public static String SUCCESS_INITATION = "函数初始化！";
+	public static String SUCCESS_DESC = "操作成功！";
+	public static String SUCCESS_DELETE = "删除成功！";
+	public static String SUCCESS_ADD="添加成功!";
+	public static String SUCCESS_EDIT="修改成功!";
 	/**
 	 * 网站同步的变量
 	 */
@@ -99,6 +104,13 @@ public class CommonConst {
 	public static String ADMIN_TYPE_SUPER = "00"; 								//超级管理员
 	public static String ADMIN_TYPE_NORMAL = "01"; 								//普通管理员
 
+	/**
+	 * 用户类型
+	 */
+	public static String USER_TYPE_BUYER="00";									//买家
+	public static String USER_TYPE_SELLER="01";									//一般卖家
+	public static String USER_TYPE_SELLER_SUPER="02";							//超级卖家
+	
 	/**
 	 * 系统编码表类型
 	 */

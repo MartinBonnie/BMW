@@ -43,5 +43,4 @@ public class AdminAction extends BaseAction<BmwAdmin> {
 		this.result = JSONObject.fromObject(eResult).toString();
 		return JSON;
 	}
-	
 }

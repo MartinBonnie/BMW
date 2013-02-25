@@ -21,7 +21,7 @@ public class BmwUser implements java.io.Serializable {
 	private String username;	//用户名
 	private String password;	//密码
 	private String type;		//用户类型 00：买家 01：一般卖家 02：特殊卖家
-	private String state;		//状态
+	private String state;		//状态 00:未激活状态  01：正常状态 
 	private Date addTime;		//添加时间
 	private String pwdQuestion;	//密码保护问题
 	private String pwdAnswer;	//密码保护答案
