@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台首页</title>
+<link href="content/css/css.css" rel="stylesheet" type="text/css" />
+
+<link href="content/css/Album.css" rel="stylesheet" type="text/css" />
+<script src="content/js/jquery.js"></script>
+<script src="content/js/slider.js"></script>
+<script>
+	$(function(){
+		$("#nav li a").click(function(){
+			$("#nav li").removeClass("current");
+			$(this).parent().addClass("current")
+		})
+		$(".sideC li:odd").addClass("odd");
+		$(".table tr:even").addClass("odd");
+		$(".table tr th:last").addClass("last");
+		
+	})
+</script>
+<!--[if lt IE 7]>
+ <style type="text/css">
+ .menu img { behavior: url(iepngfix.htc) }
+ </style>
+<![endif]-->
+</head>
+
+<body>
+<div class="wraper clearfix ">
+    <div id="wrap">
+    	<div id="header">
+        	<div class="search">
+            	<input type="text" class="txt" value="请输入关键字" /><input type="button" value="搜索"  class="btn"/>
+            </div>
+        	<div class="topbar">
+            	<h1>我的后台</h1><p><span>你好<em>庄程远</em></span><a href="#">退出</a><span>|</span><a href="#">返回</a><span>|</span><a href="#">管理账号</a><span>|</span><a href="#"><img src="content/images/email.png" />消息提醒（<strong>2</strong>）</a> </p>
+            </div>
+            <div id="nav">
+            	<div class="r">
+                	<div class="l">
+                    	<ul>
+                        	<li class="current"><a href="#" title="首页"><span>首页</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="产品"><span>产品</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="客户"><span>客户</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="交易"><span>交易</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="旺铺"><span>旺铺</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="资讯"><span>资讯</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="银行"><span>银行</span></a></li>
+                            <li>|</li>
+                            <li><a href="#" title="账号"><span>账号</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+         </div>
+        
+        
+         <div class="menu">
+         	<a href="#" class="more"><i></i>查看更多</a>
+            <ul>
+                <li><a href="#" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
+                <li><a href="#" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
+                <li><a href="#" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
+                <li><a href="#" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
+                <li><a href="#" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
+                <li><a href="#" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
+                <li><a href="#" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
+                <li><a href="#" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
+            </ul>
+        </div>
+        
+        
+        
+        
+        <div id="container"  class="clearfix">
+        	
+        	<div class="Ablum">
+            	<div class="title">
+                	<ul>
+                    	<li class="current"><a><span>相册列表</span></a></li>
+                    </ul>
+                </div>
+                <div class="tab">
+                	<div class="fr"><a href="#" onclick="$('.shade').show();$('#upload').show()">上传照片</a> | <a href="#" onclick="$('.shade').show();$('#creatAblum').show()">新建相册</a></div>
+                    共3个相册
+                </div>
+                <div class=" photoL">
+                	<h1>老飞人谢幕战经典回忆</h1>
+                    <div class="photoArea"><img src="content/images/pic3.jpg" /></div>
+                    <p class="photoP">乔丹在费城的第一联合中心打完了他职业生涯的最后一场比赛，他出场28分钟，15投6中，罚球4罚3中，得到15分4个篮板4次助攻，但是奇才客场以87-107不敌76人，乔丹以一种并不完美的方式结束了他的最后一战。 而应现场观众的要求，乔丹在终场前2分34秒再次替补上场。终场前1分45秒，乔丹突破造成斯诺犯规，他两罚全中，比分变为85-103。1秒钟后，鲁上场换下乔丹</p>
+                		<div class="comment" >
+                            <ul class="commentlist">
+                                <li>
+                                    <em class="cov"><a href="#"><img src="content/images/pic3.jpg" width="50" height="50"/></a></em>
+                                   	<textarea class="txt" style="width:580px; height:80px;"></textarea>&nbsp;<span>0/100</span>
+                                    <p><input type="button" value="发布" class="sure" />&nbsp;&nbsp;<a href="#">取消</a></p>
+                                </li>
+                               
+                            </ul>
+                           
+                                           
+                        </div>
+                    	<div class="comment">
+                            <ul class="commentlist">
+                                <li>
+                                    <em class="cov"><a href="#"><img src="content/images/pic3.jpg" width="50" height="50"/></a></em>
+                                    <span class="covdel"><a href="javascript:;">删除</a></span>
+                                    <h3>来自：<a href="#" >毛主席</a><span class="time">2009-09-25 12:46:45</span></h3>
+                                    <p>乔丹在费城的第一联合中心打完了他职业生涯的最后一场比赛，他出场28分钟，15投6中，罚球4罚3中，得到15分4个篮板4次助攻，但是奇才客场以87-107不敌76人，乔丹以一种并不完美的方式结束了他的最后一战。 而应现场观众的要求，乔丹在终场前2分34秒再次替补上场。终场前1分45秒，乔丹突破造成斯诺犯规，他两罚全中，比分变为85-103。1秒钟后，鲁上场换下乔丹<p>
+                                </li>
+                                <li>
+                                    <em class="cov"><a href="#"><img src="content/images/pic3.jpg" width="50" height="50"/></a></em>
+                                    <span class="covdel"><a href="javascript:;">删除</a></span>
+                                    <h3>来自：<a href="#" >毛主席</a><span class="time">2009-09-25 12:46:45</span></h3>
+                                    <p>乔丹在费城的第一联合中心打完了他职业生涯的最后一场比赛，他出场28分钟，15投6中，罚球4罚3中，得到15分4个篮板4次助攻，但是奇才客场以87-107不敌76人，乔丹以一种并不完美的方式结束了他的最后一战。 而应现场观众的要求，乔丹在终场前2分34秒再次替补上场。终场前1分45秒，乔丹突破造成斯诺犯规，他两罚全中，比分变为85-103。1秒钟后，鲁上场换下乔丹<p>
+                                </li>
+                                <li>
+                                    <em class="cov"><a href="#"><img src="content/images/pic3.jpg" width="50" height="50"/></a></em>
+                                    <span class="covdel"><a href="javascript:;">删除</a></span>
+                                    <h3>来自：<a href="#" >毛主席</a><span class="time">2009-09-25 12:46:45</span></h3>
+                                    <p>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<p>
+                                </li>
+                                <li>
+                                    <em class="cov"><a href="#"><img src="content/images/pic3.jpg" width="50" height="50"/></a></em>
+                                    <span class="covdel"><a href="javascript:;">删除</a></span>
+                                    <h3>来自：<a href="#" >毛主席</a><span class="time">2009-09-25 12:46:45</span></h3>
+                                    <p>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<p>
+                                </li>
+                            </ul>
+                           
+                                           
+                        </div>
+                </div>
+                  <!-- 评论 -->
+                
+                <div class="photoR">
+                	<h3>第1张/ 共7张</h3>
+                    <div class="photoZ">
+                    	<a href="#" class="turnL turnR"></a>
+                        <a href="#" class="turnL "></a>
+                    	<ul>
+                        	<li class="current"><a href="#"><img src="content/images/pic.jpg" /></a></li>
+                            <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
+                            <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
+                            <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        	
+            
+            
+            
+        </div>
+        
+        
+        
+    </div>
+    
+</div>
+<div id="foot">Copyright © 2000-2011 东方五金版权所有</div>
+
+<div class="shade " ></div>
+<div class="show "id="upload" style="width:620px; left:50%; top:200px; display:none; margin-left:-310px;">
+	<div class="area">
+    	<h3><a href="#" class="close" onclick="$('.shade').hide();$('#upload').hide()"></a>上传照片</h3>
+        
+        <div class="upload_photo">
+                        <div class="nei" id="nei">
+                            <div class="top">
+                                <p>单张图片小于3072KB<br />上传照片的格式支持JPG、GIF，但目前暂不支持带动画的GIF</p>
+                                <i></i><strong>上传照片</strong><a href="#" class="fl sure">上传照片<input type="file" /></a>
+                            </div>
+                            <div class="srcll">
+                            <table cellpadding="0" cellspacing="0" border="0">
+                              <thead>
+                                <tr>
+                                <th class="s1">&nbsp;</th>
+                                <th class="s2">文件名</th>
+                                <th class="s3">大小</th>
+                                <th class="s4">&nbsp;</th>
+                               </tr>
+                              </thead>
+                              
+                              <tbody >
+                                <tr>
+                                  <td class="s1"><img src="content/images/tou.gif" /></td>
+                                  <td class="s2"><a href="#" onclick="$('#xs').show();$(this).hide();$('#name').hide()">标题</a><span id="name">IMGP5683.jpg</span><div id="xs" style="display:none"><span class="wai"><input type="text" /></span><a href="#">确定</a><a href="#" class="qx">删除</a></div></td>
+                                  <td class="s3">50.0Kb</td>
+                                  <td class="s4"><em class="false"></em></td>
+                                </tr>
+                                 <tr class="odd">
+                                  <td class="s1"><img src="content/images/tou.gif" /></td>
+                                  <td class="s2"><span class="qd">IMGP5683.jpg</span></td>
+                                  <td class="s3">50.0Kb</td>
+                                  <td class="s4"><em>60%</em></td>
+                                </tr>
+                                 <tr>
+                                  <td class="s1"><img src="content/images/tou.gif" /></td>
+                                  <td class="s2"><span class="qd">IMGP5683.jpg</span></td>
+                                  <td class="s3">50.0Kb</td>
+                                  <td class="s4"><em class="true"></em></td>
+                              
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                    <td class="s1">&nbsp;</td>
+                                    <td class="s2">共<em>5</em>张照片|<a href="#">清空</a></td>
+                                    <td class="s3">总计:1.17 MB</td>
+                                    <td class="s4">&nbsp;</td>
+                                </tr>
+                              </tfoot>
+                            </table>
+                            </div>
+                            <div class="bottom">放入相册：<select><option>8月杭州之旅</option></select><a href="#">创建相册</a></div>
+                            <input type="button" value="提 交" class="sure" />
+                           
+                        </div>
+                        
+                        <div class="nei"  id="suc">
+                            <div class="suc" >
+                                <i></i><strong>上传成功</strong>
+                                <p>已成功长传8张照片，相册容量剩于50M！</p>
+                                <input type="button" value="继续上传" class="sure" />
+                                
+                            </div>
+                       </div>                                     
+                    </div>
+        
+    </div>
+    <div class="di"></div>
+</div>
+
+<div class="show " id="creatAblum" style="width:400px; left:50%; top:200px; margin-left:-200px; display:none">
+	<div class="area">
+    	<h3><a href="#" class="close"  onclick="$('.shade').hide();$('#creatAblum').hide()"></a>新建相册</h3>
+        <div class="creatAblum">
+        	<ul>
+            	<li><label>相册名称：</label><input type="text" class="txt" /></li>
+                <li><label>权限：</label><select><option>所有人</option></select></li>
+                <li><label>描述：</label><textarea class="txt" style="width:200px; height:80px;"></textarea></li>
+                <li><input type="button" value="确定" class="sure" /></li>
+            </ul>
+        </div>
+        
+        
+    </div>
+    <div class="di"></div>
+</div>
+<script>
+	$(".shade").height($(document).height())
+</script>
+</body>
+</html>
