@@ -112,6 +112,9 @@ public class CommonConst {
 	public static String USER_TYPE_SELLER="01";									//一般卖家
 	public static String USER_TYPE_SELLER_SUPER="02";							//超级卖家
 	
+	public static String USER_AUDIT_INIT="00";									//未实名认证用户
+	public static String USER_AUDIT_NORMAL="01";								//实名认证用户
+	
 	/**
 	 * 系统编码表类型
 	 */

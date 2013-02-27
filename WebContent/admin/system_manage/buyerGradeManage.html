@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<title>客户追踪记录</title>
+<link type="text/css" href="../css/css.css" rel="stylesheet" />
+<link type="text/css" href="../js/datepicker/datepicker.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/core/jquery.js"></script>
+<script type="text/javascript" src="../js/core/common.js"></script>
+<script type="text/javascript" src="../js/core/toolkit.js"></script>
+<script type="text/javascript" src="../js/core/validate.js"></script>
+<script type="text/javascript" src="../js/core/select.js"></script>
+<script type="text/javascript" src="../js/datepicker/datepicker.js"></script>
+<script type="text/javascript">
+	var PAGE_PARAM = {
+		"pageSize": 20, 
+		"curPage": 1, 
+		"curState": 0, 
+		"curId": 0,
+		"curData": {},
+		"searchCard": null,
+		"floatPanel": null,
+		"lastScore": null
+	};
+	$(document).ready(function() {
+		PAGE_PARAM.searchCard = $("#search_card");
+		PAGE_PARAM.floatPanel = $("#float_add");
+		PAGE_PARAM.clientIpt = $("#add_cname");
+		getPage(1);
+		initActions();
+	});
+	
+	initActions = function(){
+		var offset_search = $("#op_search").offset();
+		PAGE_PARAM.searchCard.css({"left": offset_search.left+"px", "top": (offset_search.top+20)+"px"});
+		$("#op_search").click(function(){
+			PAGE_PARAM.searchCard.slideToggle('fast');
+		});
+		PAGE_PARAM.searchCard.find("input.scancel").click(function(){
+			PAGE_PARAM.searchCard.slideToggle('fast');
+		});
+		PAGE_PARAM.searchCard.find("input.sconfirm").click(function(){
+			PAGE_PARAM.searchCard.slideToggle('fast');
+			getPage(1);
+		});
+		PAGE_PARAM.floatPanel.find("input.bcancel").click(function(){
+			PAGE_PARAM.floatPanel.slideUp("fast");
+			$.showAddBg(false);
+		});
+	};
+	
+	formatHtml = function(obj){
+		obj = $.formatObj(obj);
+		var html = "";
+		html += "<td><div class=\"num\">"+obj.SERIAL+"</div></td>";
+		html += "<td><div>"+obj.name+"</div></td>";
+		html += "<td><div>"+obj.start+"</div></td>";
+		html += "<td><div>"+obj.end+"</div></td>";
+		html += "<td><div>"+obj.desc+"</div></td>";
+		html += "<td><div class=\"date\"><a onclick=\"editObjShow('"+obj.id+"');\">编辑</a>"
+			+"<a onclick=\"delObj('"+obj.ctrackId+"');\" class=\"del\">删除</a></div></td>";
+		return html;
+	};
+	
+	getPage = function(page){
+		PAGE_PARAM.curPage = page;
+		var startIndex = (PAGE_PARAM.curPage-1)*PAGE_PARAM.pageSize;
+		var params = {};
+		params.ctrackCname = $("#search_cname").val().trim();
+		params.ctrackMemo = $("#search_memo").val().trim();
+		params.startIndex = startIndex;
+		params.page = PAGE_PARAM.curPage;
+		params.pageSize = PAGE_PARAM.pageSize;
+		$.ajax({
+			type : "get",
+			url : "/mvc/client/ctrack/list"
+				+"?ts="+new Date().getTime(),
+			dataType : "json",
+			data : params
+		}).done(function(result){
+			if(result.isTrue) {
+				if(result.tag.totalCount==0) {
+					$("#page_op").initPagination('getPage', 1, PAGE_PARAM.curPage);
+					$("#total_num").html(0);
+					$("#list_data").html("<tr><td colspan=\"6\"><div class=\"date\"><strong>暂无数据！</strong></div></td></tr>");
+					return;
+				} 
+				$("#page_op").initPagination('getPage', Math.ceil(result.tag.totalCount/PAGE_PARAM.pageSize), PAGE_PARAM.curPage);
+				$("#total_num").html(result.tag.totalCount);
+				PAGE_PARAM.curData = {};
+				var html = "";
+				for(var i=0; i<result.tag.items.length; i++){
+					var obj = result.tag.items[i];
+					obj.SERIAL = startIndex+i+1;
+					PAGE_PARAM.curData[obj.ctrackId] = obj;
+					html += "<tr id=\""+obj.ctrackId+"\">"+formatHtml(obj)+"</tr>";
+				}
+				$("#list_data").html(html);
+			} else {
+				$.showAlert(result.message, "确定");
+			}
+		}).fail(function(){
+			$.showAlert("网络繁忙，请稍后再试！", "确定");
+		});	
+	};
+	changePageNum = function(pageSize){
+		PAGE_PARAM.pageSize = pageSize;
+		getPage(1);
+	};
+	
+	checkTrack = function(dom){
+		if(!dom.val().trim().rangeLen(1, 512)) {
+			dom.addClass("err");
+			$("#err_track").html("追踪记录为1到512个字符！").show();
+		} else {
+			dom.removeClass("err");
+			$("#err_track").hide();
+		}
+	};
+	
+	reset = function(){
+		if(PAGE_PARAM.curId==0) {
+			$("#add_cname").removeData("value").val("");
+			$("#add_track").val("").removeClass('err');
+			$('#err_track').hide();
+		} else {
+			var obj = PAGE_PARAM.curData[PAGE_PARAM.curId];
+			PAGE_PARAM.floatPanel.find("strong").html(obj.ctrackCname);
+			$("#add_track").val(obj.ctrackMemo).removeClass('err').focus();
+			$('#err_track').hide();
+		}
+		PAGE_PARAM.floatPanel.find("input").removeClass('err');
+		PAGE_PARAM.floatPanel.find("span.err").empty();
+	};	
+	
+	addTrackShow = function(){
+		$.showAddBg(true);
+		PAGE_PARAM.curId = 0;
+		reset();
+		$("#add_area").find("div").eq(0).hide().end().eq(1).show();
+		PAGE_PARAM.floatPanel.slideDown("fast");
+	};
+	
+	editObjShow = function(objId){
+		$.showAddBg(true);
+		PAGE_PARAM.curId = objId;
+		reset();
+		$("#add_area").find("div").eq(1).hide().end().eq(0).show();
+		PAGE_PARAM.floatPanel.slideDown("fast");
+	};
+	
+	editOrSaveObj = function(){
+		if(PAGE_PARAM.curId==0 && PAGE_PARAM.clientIpt.data("value")==null) {
+			PAGE_PARAM.clientIpt.addClass("err").nextAll(".err").html("客户为必填项！");
+		}
+		$("#add_track").trigger("keyup");
+		if(PAGE_PARAM.floatPanel.find("input.err, textarea.err").size()>0) {
+			$.showAlert("还有内容没有填写正确，请根据红色字体提示进行修改后再保存！", "确定", function(){
+				$.showAddBg(true);
+			});
+			return;
+		}
+		var postData = {};
+		postData.ctrackCid = $("#add_cname").data("value");
+		postData.ctrackCname = $("#add_cname").val();
+		postData.ctrackMemo = $("#add_track").val().trim();
+		$.showAddBg(true, 1000, true);
+		if(PAGE_PARAM.curId==0) {
+			$.ajax({
+				type : "post",
+				url : "/mvc/client/ctrack/add"
+					+"?ts="+new Date().getTime(),
+				dataType : "json",
+				data: postData
+			}).done(function(result){
+				if(result.isTrue) {
+					PAGE_PARAM.floatPanel.slideUp("fast");
+					var obj = result.tag;
+					obj.SERIAL = 0;
+					PAGE_PARAM.curData[obj.ctrackId] = obj;
+					$("#list_data").prepend("<tr id=\""+obj.ctrackId+"\">"+formatHtml(obj)+"</tr>");
+					$("#total_num").html(parseInt($("#total_num").text())+1);
+					$.showAddBg(false);
+				} else {
+					$.showAlert(result.message, "确定", function(){
+						$.showAddBg(true);
+					});
+				}
+			}).fail(function(){
+				$.showAlert("网络繁忙，请稍后再试！", "确定", function(){
+					$.showAddBg(true);
+				});
+			});
+		} else {
+			var obj = PAGE_PARAM.curData[PAGE_PARAM.curId];
+			postData.ctrackId = PAGE_PARAM.curId;
+			postData.ctrackCid = obj.ctrackCid;
+			postData.ctrackCname = obj.ctrackCname;
+			$.ajax({
+				type : "post",
+				url : "/mvc/client/ctrack/update"
+					+"?ts="+new Date().getTime(),
+				dataType : "json",
+				data: postData
+			}).done(function(result){
+				if(result.isTrue) {
+					PAGE_PARAM.floatPanel.slideUp("fast");
+					result.tag.SERIAL = PAGE_PARAM.curData[PAGE_PARAM.curId].SERIAL;
+					PAGE_PARAM.curData[PAGE_PARAM.curId] = result.tag;
+					$("#"+PAGE_PARAM.curId).html(formatHtml(result.tag));
+					$.showAddBg(false);
+				} else {
+					$.showAlert(result.message, "确定", function(){
+						$.showAddBg(true);
+					});
+				}
+			}).fail(function(){
+				$.showAlert("网络繁忙，请稍后再试！", "确定", function(){
+					$.showAddBg(true);
+				});
+			});
+		}
+		
+	};
+	
+	delObj = function(objId){
+		if(confirm("您确定要删除此数据？")){
+			$.ajax({
+				type : "post",
+				url : "/mvc/client/ctrack/delete"
+					+"?ts="+new Date().getTime(),
+				dataType : "json",
+				data: {"ctrackId": objId}
+			}).done(function(result){
+				if(result.isTrue) {
+					$("#"+objId).remove();
+					$("#total_num").html(parseInt($("#total_num").text())-1);
+				} else {
+					$.showAlert(result.message, "确定");
+				}
+			}).fail(function(){
+				$.showAlert("网络繁忙，请稍后再试！", "确定");
+			});
+		}
+	};
+	
+	
+</script>
+</head>
+<body style="margin: 0px 3px 0px 3px">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr style="height:30px">
+    <td>
+    	<div class="list_desc">
+    		<span class="option">
+    			<a onclick="addTrackShow();" class="url" title="新增追踪">新增追踪</a></span>
+			<span>客户追踪记录: 
+				<a id="op_search" title="设置检索条件">检索条件</a></span>
+		</div>
+	</td>
+  </tr>
+  <tr>
+    <td>
+    	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#a8c7ce">
+    		<thead class="list_title">
+		      <tr>
+		        <td><div>序号</div></td>
+		        <td><div>姓名</div></td>
+		        <td><div>追踪记录</div></td>
+		        <td><div>添加时间</div></td>
+		        <td><div>更新时间</div></td>
+		        <td><div>操作</div></td>
+		      </tr>
+		  	</thead>
+			<tbody class="list_data" id="list_data">
+				<!--
+			  	page_data
+			  	-->
+			</tbody>
+    	</table>
+	</td>
+  </tr>
+  <tr>
+  <td height="30">
+      <div class="pagination">
+      	<span id="page_op" style="float: right;">
+			<!--page items-->
+		</span>
+      	<span>共有<strong id="total_num">0</strong>条记录</span>
+      	<span>每页条数：
+      		<a href="###" class="active" onclick="changePageNum(20);$(this).addClass('active').siblings().removeClass('active');">20</a>
+      		<a href="###" onclick="changePageNum(50);$(this).addClass('active').siblings().removeClass('active');">50</a>
+      		<a href="###" onclick="changePageNum(100);$(this).addClass('active').siblings().removeClass('active');">100</a></span>
+	  </div>
+  </td>
+  </tr>
+</table>
+
+<div id="search_card" class="divSearchCard">
+	<div>
+		<label>姓名:</label>
+		<input id="search_cname" type="text" class="text small" />
+	</div>
+	<div>
+		<label>备注:</label>
+		<input id="search_memo" type="text" class="text small" />
+	</div>
+	<div style="text-align: right; ">
+		<input type="button" class="btn scancel" title="取消" />
+		<input type="button" class="btn sconfirm" title="确定" />
+	</div>
+</div>
+
+
+<div id="float_add" class="divFloatPanel" >
+	<div id="add_area" class="divAddData">
+		<div style="width:100%; text-align: center;">
+			<a class="url">编辑客户<strong style="color: red;"></strong>的追踪记录</a>
+		</div>
+		<div>
+			<label>客户:</label>
+			<input id="add_cname" type="text" class="text small" readonly="readonly" />
+			<strong style="color: red;">*</strong>
+			<span class="err"></span>
+		</div>
+		<div>
+			<label>备注:</label>
+			<textarea id="add_track" onkeyup="checkTrack($(this));"></textarea>
+		</div>
+		<div id="err_track" style="color: red; display: none; margin-left:75px; "></div>
+		<div style="margin-top: 15px; text-align: left; ">
+			<input type="button" class="btn bcancel" title="取消" style="margin: 0 16px 0 300px;" />
+			<input type="button" class="btn reset" onclick="reset();" title="重置" style="margin-right:5px;" />
+			<input type="button" class="btn bconfirm" onclick="editOrSaveObj();" title="确定" />
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

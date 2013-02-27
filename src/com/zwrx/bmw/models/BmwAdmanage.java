@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_admanage")
-public class BwmAdmanage implements java.io.Serializable {
+public class BmwAdmanage implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String adId;			//广告ID
@@ -32,10 +32,10 @@ public class BwmAdmanage implements java.io.Serializable {
 	private String adminId;			//添加人账号admin
 	private String state;			//状态
 	
-	public BwmAdmanage() {
+	public BmwAdmanage() {
 	}
 
-	public BwmAdmanage(String adId) {
+	public BmwAdmanage(String adId) {
 		this.adId = adId;
 	}
 

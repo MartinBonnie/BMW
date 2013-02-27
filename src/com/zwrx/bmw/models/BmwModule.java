@@ -9,7 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "bmw_module")
-public class BwmModule implements java.io.Serializable {
+public class BmwModule implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String moduleId;		//模块ID
@@ -19,10 +19,10 @@ public class BwmModule implements java.io.Serializable {
 	private String sdesc;			//描述
 	private String state;			//状态
 
-	public BwmModule() {
+	public BmwModule() {
 	}
 
-	public BwmModule(String moduleId) {
+	public BmwModule(String moduleId) {
 		this.moduleId = moduleId;
 	}
 

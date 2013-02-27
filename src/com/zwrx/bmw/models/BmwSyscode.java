@@ -12,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_syscode")
-public class BwmSyscode implements java.io.Serializable {
+public class BmwSyscode implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String syscodeId;		//数据字典ID
@@ -25,14 +25,14 @@ public class BwmSyscode implements java.io.Serializable {
 	private String state;			//状态
 	private String content;			//内容
 
-	public BwmSyscode() {
+	public BmwSyscode() {
 	}
 
-	public BwmSyscode(String syscodeId) {
+	public BmwSyscode(String syscodeId) {
 		this.syscodeId = syscodeId;
 	}
 
-	public BwmSyscode(String syscodeId, String type, String class_,
+	public BmwSyscode(String syscodeId, String type, String class_,
 			String fatherdict, String name, String sdesc, String sign,
 			String state, String content) {
 		this.syscodeId = syscodeId;

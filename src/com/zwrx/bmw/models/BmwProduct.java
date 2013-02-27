@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_product")
-public class BwmProduct implements java.io.Serializable {
+public class BmwProduct implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String productId;		//产品ID
@@ -38,10 +38,10 @@ public class BwmProduct implements java.io.Serializable {
 	private String staticUrl;		//静态化后的链接
 	private String desc;			//产品描述
 	private String comTimes;		//斗价期次
-	public BwmProduct() {
+	public BmwProduct() {
 	}
 
-	public BwmProduct(String productId) {
+	public BmwProduct(String productId) {
 		this.productId = productId;
 	}
 

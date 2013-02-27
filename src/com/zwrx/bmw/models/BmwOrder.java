@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_order")
-public class BwmOrder implements java.io.Serializable {
+public class BmwOrder implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String orderId;			//订单ID
@@ -39,10 +39,10 @@ public class BwmOrder implements java.io.Serializable {
 	private Date returnTime;		//退货时间
 	private Date settleTime;		//结算时间
 	
-	public BwmOrder() {
+	public BmwOrder() {
 	}
 
-	public BwmOrder(String orderId) {
+	public BmwOrder(String orderId) {
 		this.orderId = orderId;
 	}
 

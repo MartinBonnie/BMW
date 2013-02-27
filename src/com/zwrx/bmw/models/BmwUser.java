@@ -41,13 +41,13 @@ public class BmwUser implements java.io.Serializable {
 	private String fax;			//传真
 	private String buyerGrade;	//用户买家等级
 	private String sellerGrade;	//用户卖家等级
-	private int buyerGradeScore;//买家积分数
-	private int sellerGradeScore;//卖家积分数
+	private Integer buyerGradeScore;//买家积分数
+	private Integer sellerGradeScore;//卖家积分数
 	private Date editTime;		//上次修改时间
 	private String editIp;		//修改IP
 	private Date lastTime;		//上次登录时间
 	private String lastIp;		//上次登录IP
-	
+	private String audit;		//实名认证
 	public BmwUser() {
 	}
 
@@ -306,5 +306,13 @@ public class BmwUser implements java.io.Serializable {
 		}else{
 			return "";
 		}
+	}
+	@Column(name = "audit", length = 2)
+	public String getAudit() {
+		return audit;
+	}
+
+	public void setAudit(String audit) {
+		this.audit = audit;
 	}
 }

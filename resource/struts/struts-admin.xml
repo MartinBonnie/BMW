@@ -28,6 +28,11 @@
 			method="{1}">
 			<result name="json" type="json"><param name="root">result</param></result>
 		</action>	
+		
+		<action name="*User" class="userAdminAction"
+			method="{1}">
+			<result name="json" type="json"><param name="root">result</param></result>
+		</action>	
 
 	</package>
 	

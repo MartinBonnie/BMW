@@ -16,7 +16,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.zwrx.bmw.common.CommonConst;
-import com.zwrx.bmw.models.BwmSyscode;
+import com.zwrx.bmw.models.BmwSyscode;
 import com.zwrx.bmw.service.BaseService;
 import com.zwrx.bmw.util.BeansFactory;
 import com.zwrx.bmw.util.StringUtil;
@@ -36,9 +36,9 @@ public class BannedFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		try {
 			BaseService baseService = (BaseService)BeansFactory.get("baseService");
-			BwmSyscode syscode = new BwmSyscode();
+			BmwSyscode syscode = new BmwSyscode();
 			syscode.setType(CommonConst.SYSCODE_TYPE_BANNED_KEY);
-			List<BwmSyscode> list =baseService.findByExample(syscode);
+			List<BmwSyscode> list =baseService.findByExample(syscode);
 			if(list.size()==0){
 				syscode.setName("屏蔽字");
 				baseService.save(syscode);

@@ -11,42 +11,44 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * 新闻
+ * 消息
  * @author zhiYang
  *
  */
 @Entity
-@Table(name = "bmw_news")
-public class BwmNews implements java.io.Serializable {
+@Table(name = "bmw_message")
+public class BmwMessage implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String newsId;			//新闻ID
+	private String messageId;		//ID
 	private String userId;			//添加人ID
-	private String category;		//分类（就一级分类）
 	private String title;			//标题
-	private String content;			//新闻内容
-	private String nkey;			//关键字
+	private String content;			//内容
+	private String belongId;		//回复Id
 	private Date addTime;			//添加时间
+	private String receiveId;		//接受者Id
+	private String readState;		//是否已读 00:未读 01：已读
 	private String state;			//状态
+	private String type;			//类型 00：用户消息 01：系统消息
 	
-	public BwmNews() {
+	public BmwMessage() {
 	}
 
-	public BwmNews(String newsId) {
-		this.newsId = newsId;
+	public BmwMessage(String messageId) {
+		this.messageId = messageId;
 	}
 
 
 	@Id
-	@Column(name = "news_id", unique = true, nullable = false, length = 32)
+	@Column(name = "message_id", unique = true, nullable = false, length = 32)
 	@GenericGenerator(name="idGenerator", strategy="uuid")
 	@GeneratedValue(generator="idGenerator")
-	public String getNewsId() {
-		return this.newsId;
+	public String getMessageId() {
+		return this.messageId;
 	}
 
-	public void setNewsId(String newsId) {
-		this.newsId = newsId;
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
 	}
 
 
@@ -80,15 +82,6 @@ public class BwmNews implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	@Column(name = "category", length = 32)
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 	@Column(name = "title", length = 100)
 	public String getTitle() {
 		return title;
@@ -106,13 +99,41 @@ public class BwmNews implements java.io.Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	@Column(name = "nkey", length = 100)
-	public String getNkey() {
-		return nkey;
+
+	@Column(name = "belong_id", length = 32)
+	public String getBelongId() {
+		return belongId;
 	}
 
-	public void setNkey(String nkey) {
-		this.nkey = nkey;
+	public void setBelongId(String belongId) {
+		this.belongId = belongId;
+	}
+
+	@Column(name = "receive_id", length = 32)
+	public String getReceiveId() {
+		return receiveId;
+	}
+
+	public void setReceiveId(String receiveId) {
+		this.receiveId = receiveId;
+	}
+
+	@Column(name = "read_state", length = 2)
+	public String getReadState() {
+		return readState;
+	}
+
+	public void setReadState(String readState) {
+		this.readState = readState;
+	}
+
+	@Column(name = "type", length = 2)
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 

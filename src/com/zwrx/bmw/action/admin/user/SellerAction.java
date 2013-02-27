@@ -2,15 +2,12 @@ package com.zwrx.bmw.action.admin.user;
 
 import java.util.Calendar;
 import java.util.List;
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import net.sf.json.JSONObject;
 import com.zwrx.bmw.action.BaseAction;
 import com.zwrx.bmw.common.CommonConst;
-import com.zwrx.bmw.models.BmwAdmin;
 import com.zwrx.bmw.models.BmwUser;
 import com.zwrx.bmw.util.ExecuteResult;
 import com.zwrx.bmw.util.StringUtil;

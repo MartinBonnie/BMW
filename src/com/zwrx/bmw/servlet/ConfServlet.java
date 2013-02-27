@@ -21,7 +21,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.zwrx.bmw.common.CommonConst;
 import com.zwrx.bmw.common.ConfConst;
-import com.zwrx.bmw.models.BwmSyscode;
+import com.zwrx.bmw.models.BmwSyscode;
 import com.zwrx.bmw.service.BaseService;
 import com.zwrx.bmw.util.BeansFactory;
 import com.zwrx.bmw.util.FileUtil;
@@ -137,7 +137,7 @@ public class ConfServlet extends HttpServlet {
 		try {
 			loadConfigProperties("/WEB-INF/classes/conf.properties",
 					ConfConst.class.getName());
-			loadLanguageProperties("/WEB-INF/classes/language.properties");
+//			loadLanguageProperties("/WEB-INF/classes/language.properties");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_logistics")
-public class BwmLogistics implements java.io.Serializable {
+public class BmwLogistics implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String logisticsId;		//物流ID
@@ -28,10 +28,10 @@ public class BwmLogistics implements java.io.Serializable {
 	private Date addTime;			//添加时间
 	private String state;			//状态
 	private String type;			//类型  
-	public BwmLogistics() {
+	public BmwLogistics() {
 	}
 
-	public BwmLogistics(String logisticsId) {
+	public BmwLogistics(String logisticsId) {
 		this.logisticsId = logisticsId;
 	}
 

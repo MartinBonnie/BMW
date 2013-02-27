@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_address")
-public class BwmAddress implements java.io.Serializable {
+public class BmwAddress implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String addressId;		//地址ID
@@ -34,10 +34,10 @@ public class BwmAddress implements java.io.Serializable {
 	private String phone;
 	private String cellphone;
 	
-	public BwmAddress() {
+	public BmwAddress() {
 	}
 
-	public BwmAddress(String addressId) {
+	public BmwAddress(String addressId) {
 		this.addressId = addressId;
 	}
 

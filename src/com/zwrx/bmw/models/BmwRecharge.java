@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "bmw_recharge")
-public class BwmRecharge implements java.io.Serializable {
+public class BmwRecharge implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String rechargeId;		//充值消费ID
@@ -30,10 +30,10 @@ public class BwmRecharge implements java.io.Serializable {
 	private String orderId;			//订单号
 	private String productId;		//产品ID
 	
-	public BwmRecharge() {
+	public BmwRecharge() {
 	}
 
-	public BwmRecharge(String rechargeId) {
+	public BmwRecharge(String rechargeId) {
 		this.rechargeId = rechargeId;
 	}
 

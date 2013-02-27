@@ -16,38 +16,41 @@ import org.hibernate.annotations.GenericGenerator;
  *
  */
 @Entity
-@Table(name = "bmw_log")
-public class BwmLog implements java.io.Serializable {
+@Table(name = "bmw_category")
+public class BmwCategory implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String logId;			//支付账单ID
-	private String isAdmin;			//是否是管理员  00：管理员 01：一般用户 02：未登录用户
-	private String logClass;		//级别  顶级00  二级01
+	private String categoryId;		//产品分类ID
 	private String userId;			//操作人ID
 	private Date addTime;			//添加时间
-	private String name;			//被操作对象
+	private String belongId;		//父类
+	private String name;			//分类名称
 	private String desc;			//描述
+	private String grade;			//分类级别
+	private String isRoot;			//是否根分类
+	private String isDisplay;		//是否显示
 	private String state;			//状态
-	private String type;			//日志类型
+	private String type;			//类型
+	private Integer sort;			//排序
 	
-	public BwmLog() {
+	public BmwCategory() {
 	}
 
-	public BwmLog(String logId) {
-		this.logId = logId;
+	public BmwCategory(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 
 	@Id
-	@Column(name = "log_id", unique = true, nullable = false, length = 32)
+	@Column(name = "category_id", unique = true, nullable = false, length = 32)
 	@GenericGenerator(name="idGenerator", strategy="uuid")
 	@GeneratedValue(generator="idGenerator")
-	public String getLogId() {
-		return this.logId;
+	public String getCategoryId() {
+		return this.categoryId;
 	}
 
-	public void setLogId(String logId) {
-		this.logId = logId;
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	@Column(name = "type", length = 2)
@@ -88,24 +91,6 @@ public class BwmLog implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	@Column(name = "is_admin", length = 2)
-	public String getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(String isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-	@Column(name = "log_class", length = 2)
-	public String getLogClass() {
-		return logClass;
-	}
-
-	public void setLogClass(String logClass) {
-		this.logClass = logClass;
-	}
-
 	@Column(name = "name", length = 20)
 	public String getName() {
 		return name;
@@ -122,6 +107,51 @@ public class BwmLog implements java.io.Serializable {
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	@Column(name = "belong_id", length = 32)
+	public String getBelongId() {
+		return belongId;
+	}
+
+	public void setBelongId(String belongId) {
+		this.belongId = belongId;
+	}
+
+	@Column(name = "grade", length = 2)
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	@Column(name = "is_root", length = 2)
+	public String getIsRoot() {
+		return isRoot;
+	}
+
+	public void setIsRoot(String isRoot) {
+		this.isRoot = isRoot;
+	}
+
+	@Column(name = "is_display", length = 2)
+	public String getIsDisplay() {
+		return isDisplay;
+	}
+
+	public void setIsDisplay(String isDisplay) {
+		this.isDisplay = isDisplay;
+	}
+
+	@Column(name = "sort")
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
 	}
 
 

@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "bmw_bill")
-public class BwmBill implements java.io.Serializable {
+public class BmwBill implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String billId;			//支付账单ID
@@ -31,10 +31,10 @@ public class BwmBill implements java.io.Serializable {
 	private String state;			//状态
 	private String type;			//充值方式 00：支付宝 01：财付通 02：网上银行
 	
-	public BwmBill() {
+	public BmwBill() {
 	}
 
-	public BwmBill(String billId) {
+	public BmwBill(String billId) {
 		this.billId = billId;
 	}
 

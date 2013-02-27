@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "bmw_account")
-public class BwmAccount implements java.io.Serializable {
+public class BmwAccount implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String accountId;		//模块ID
@@ -25,10 +25,10 @@ public class BwmAccount implements java.io.Serializable {
 	private String type;			//类型
 	private String payPwd;			//支付密码
 
-	public BwmAccount() {
+	public BmwAccount() {
 	}
 
-	public BwmAccount(String accountId) {
+	public BmwAccount(String accountId) {
 		this.accountId = accountId;
 	}
 
