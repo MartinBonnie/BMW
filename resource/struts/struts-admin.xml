@@ -23,7 +23,11 @@
 			<result name="input">/admin/login.html</result>
 			<result name="json" type="json"><param name="root">result</param></result>
 		</action>
-			
+		
+		<action name="*Seller" class="sellerAdminAction"
+			method="{1}">
+			<result name="json" type="json"><param name="root">result</param></result>
+		</action>	
 
 	</package>
 	

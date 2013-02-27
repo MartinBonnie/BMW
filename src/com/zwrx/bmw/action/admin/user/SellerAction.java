@@ -31,7 +31,7 @@ public class SellerAction extends BaseAction<BmwUser> {
 	 * 新增卖家用户
 	 * @return
 	 */
-	public String addSeller(){
+	public String add(){
 		ExecuteResult eResult;
 		try {
 			List<?> allSellers=baseService.find("from BmwUser where username=?",this.entity.getUsername());
@@ -54,7 +54,7 @@ public class SellerAction extends BaseAction<BmwUser> {
 	 * 根据卖家用户名、姓名、用户类型和手机号码进行检索
 	 * @return
 	 */
-	public String listSeller(){
+	public String list(){
 		ExecuteResult eResult;
 		try {
 			DetachedCriteria detachedCriteria = DetachedCriteria.forClass(BmwUser.class);
@@ -89,12 +89,31 @@ public class SellerAction extends BaseAction<BmwUser> {
 	 * 编辑卖家用户
 	 * @return
 	 */
-	public String editSeller(){
+	public String edit(){
 		ExecuteResult eResult;
 		try {
-			this.entity.setLastTime(Calendar.getInstance().getTime());
-			this.entity.setLastIp(this.getRequest().getLocalAddr());
-			baseService.update(entity);
+			BmwUser curUser=(BmwUser) baseService.findById(BmwUser.class,this.entity.getUserId());
+			curUser.setLastTime(Calendar.getInstance().getTime());
+			curUser.setLastIp(this.getRequest().getLocalAddr());
+			if(StringUtil.isNotBlank(this.entity.getName())){
+				curUser.setName(this.entity.getName());
+			}
+			if(StringUtil.isNotBlank(this.entity.getQq())){
+				curUser.setQq(this.entity.getQq());
+			}
+			if(StringUtil.isNotBlank(this.entity.getEmail())){
+				curUser.setEmail(this.entity.getEmail());
+			}
+			if(StringUtil.isNotBlank(this.entity.getType())){
+				curUser.setType(this.entity.getType());
+			}
+			if(StringUtil.isNotBlank(this.entity.getPhone())){
+				curUser.setPhone(this.entity.getPhone());
+			}
+			if(StringUtil.isNotBlank(this.entity.getCellphone())){
+				curUser.setCellphone(this.entity.getCellphone());
+			}
+			baseService.update(curUser);
 			eResult = new ExecuteResult(true, CommonConst.SUCCESS_ADD,this.entity);
 		} catch (Exception e) {
 			e.printStackTrace();

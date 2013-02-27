@@ -136,9 +136,16 @@ $.fn.checkIpt = function(type){
 	var self = $(this);
 	var value = self.val().trim();
 	switch(type) {
+		case "username":
+			if(!value.rangeLen(1, 20)) {
+				self.addClass("err").nextAll(".err").html("用户名的长度为1到20个字符！");
+			} else {
+				self.removeClass("err").nextAll(".err").empty();
+			}
+			break;
 		case "name":
-			if(!value.rangeLen(1, 16)) {
-				self.addClass("err").nextAll(".err").html("姓名的长度为1到16个字符！");
+			if(!value.rangeLen(1, 20)) {
+				self.addClass("err").nextAll(".err").html("姓名的长度为1到20个字符！");
 			} else {
 				self.removeClass("err").nextAll(".err").empty();
 			}

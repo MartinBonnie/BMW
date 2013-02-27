@@ -35,24 +35,22 @@
 			return;
 		}
 		var postData = {};
-		postData.clientId = PAGE_PARAM.curId;
-		postData.clientName = $("#add_name").val().trim();
-		postData.clientAge = $("#add_age").val().trim();
-		postData.clientGender = $("#add_gender").val().trim();
-		postData.clientCompany = $("#add_company").val().trim();
-		postData.clientEmail = $("#add_email").val().trim();
-		postData.clientQq = $("#add_qq").val().trim();
-		postData.clientCellphone = $("#add_cellphone").val().trim();
-		postData.clientPhone = $("#add_phone").val().trim();
-		postData.clientMemo = $("#add_memo").val().trim();
+		postData.username = $("#add_username").val().trim();
+		postData.type = $("#add_type").val().trim();
+		postData.name = $("#add_name").val().trim();
+		postData.email = $("#add_email").val().trim();
+		postData.qq = $("#add_qq").val().trim();
+		postData.cellphone = $("#add_cellphone").val().trim();
+		postData.phone = $("#add_phone").val().trim();
 		$.showAddBg(true, 1000, true);
 		$.ajax({
 			type : "post",
-			url : "/web/client/add"
+			url : "/admin/addSeller"
 				+"?ts="+new Date().getTime(),
 			dataType : "json",
 			data: postData
 		}).done(function(result){
+			result = eval('(' + result + ')');
 			$.showAlert(result.message, "确定");
 			if(result.isTrue) {
 				reset();
@@ -86,7 +84,7 @@
 				<span class="err">&nbsp;</span>
 			</div>
 			<div>
-				<label>性别:</label>
+				<label>卖家类型:</label>
 				<select id="add_type" class="tiny">
 					<option value="01" selected="selected">一般卖家</option>
 					<option value="02">超级卖家</option>
@@ -94,7 +92,7 @@
 			</div>
 			<div>
 				<label>姓名:</label>
-				<input id="add_username" type="text" class="text small" onkeyup="$(this).checkIpt('name');" />
+				<input id="add_name" type="text" class="text small" onkeyup="$(this).checkIpt('name');" />
 				<span class="err">&nbsp;</span>
 			</div>
 			<div>

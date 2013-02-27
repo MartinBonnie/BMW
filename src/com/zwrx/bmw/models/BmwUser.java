@@ -9,7 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.GenericGenerator;
+
+import com.zwrx.bmw.common.CommonConst;
 
 
 @Entity
@@ -291,5 +295,16 @@ public class BmwUser implements java.io.Serializable {
 	public void setLastIp(String lastIp) {
 		this.lastIp = lastIp;
 	}
-	
+	@Transient
+	public String getTypeName(){
+		if(CommonConst.USER_TYPE_BUYER.equals(this.type)){
+			return "买家";
+		}else if(CommonConst.USER_TYPE_SELLER.equals(this.type)){
+			return "一般卖家";
+		}else if(CommonConst.USER_TYPE_SELLER_SUPER.equals(this.type)){
+			return "超级卖家";
+		}else{
+			return "";
+		}
+	}
 }

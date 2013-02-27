@@ -11,4 +11,5 @@
 	<!-- 用户操作Action -->
 	<bean id="userAction" class="com.zwrx.bmw.action.customer.user.UserAction"/>
 	<bean id="adminAction" class="com.zwrx.bmw.action.admin.user.AdminAction"/>
+	<bean id="sellerAdminAction" class="com.zwrx.bmw.action.admin.user.SellerAction"/>
 </beans>
