@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -129,5 +131,5 @@ public class BmwSyscode implements java.io.Serializable {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
+	
 }

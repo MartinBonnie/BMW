@@ -30,7 +30,6 @@ import com.zwrx.bmw.models.BmwAdmin;
 import com.zwrx.bmw.models.BmwAttachment;
 import com.zwrx.bmw.models.BmwUser;
 import com.zwrx.bmw.util.IDUtil;
-import com.zwrx.bmw.util.ImageMagickHelper;
 import com.zwrx.bmw.util.StringUtil;
 
 /**
@@ -139,7 +138,6 @@ public class FileUploadAction<T> extends BaseAction<T> {
 		File dstFile = new File(dstPath);
 		copy(file, dstFile);
 		attachment.setFileSize(new BigDecimal(dstFile.length()));
-		ImageMagickHelper.createAllThumbnail(dstPath);
 		uploadFilePath = savingFolder + "/" + newFilename;
 		attachment.setServerPath(uploadFilePath);
 		prepareAttach(attachment);
@@ -174,7 +172,6 @@ public class FileUploadAction<T> extends BaseAction<T> {
 			attachment.setFileSize(new BigDecimal(dstFile.length()));
 			copy(fileList.get(i), dstFile);
 			try {
-				ImageMagickHelper.createAllThumbnail(dstPath);
 			} catch (Exception e) {
 				log.info("图片压缩失败！" + e.toString());
 				this.result+= "图片压缩失败！" + e.toString();
@@ -200,7 +197,6 @@ public class FileUploadAction<T> extends BaseAction<T> {
 				File dstFile = new File(dstPath);
 				copy(filedata.get(i), dstFile);
 				try {
-					ImageMagickHelper.createAllThumbnail(dstPath);
 				} catch (Exception e) {
 					log.info(e);
 					this.result = "图片压缩失败！" + e.toString();
@@ -233,28 +229,6 @@ public class FileUploadAction<T> extends BaseAction<T> {
 		return NONE;
 	}
 
-	public boolean checkUpLoadSize() {
-		if (CommonConst.ISCONTROL) {
-			if (getSession().getAttribute("addState").equals(
-					CommonConst.STATE_INIT)) {
-				DetachedCriteria dc = DetachedCriteria
-						.forClass(BmwAttachment.class);
-				dc.add(
-						Restrictions.eq("userId", this.getCurrentUser()
-								.getUserId())).add(
-						Restrictions.eq("belongType", "附件类型")).add(//需要修改奥
-						Restrictions.eq("type", CommonConst.PICTURE))
-						.setProjection(Projections.count("attId"));
-				if (baseService.getCountByCriteria(dc) >= CommonConst.PICCOUNT) {
-					addFieldError("addState", "免费用户现在只能上传"
-							+ CommonConst.PICCOUNT
-							+ "张!<a href=\"/user/upgrade/show\">升级后不受限制</a>");
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 
 	/**
 	 * 保存attachment前设置附件属性，供子类重写使用

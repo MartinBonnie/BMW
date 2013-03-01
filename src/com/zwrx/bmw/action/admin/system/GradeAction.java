@@ -1,26 +1,254 @@
 package com.zwrx.bmw.action.admin.system;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+
 import net.sf.json.JSONObject;
+
 import com.zwrx.bmw.action.BaseAction;
 import com.zwrx.bmw.common.CommonConst;
 import com.zwrx.bmw.models.BmwSyscode;
+import com.zwrx.bmw.models.BmwUser;
 import com.zwrx.bmw.util.ExecuteResult;
+import com.zwrx.bmw.util.ScoreCompartorASC;
 import com.zwrx.bmw.util.StringUtil;
+
+import edu.emory.mathcs.backport.java.util.Collections;
 /**
  * 本GradeAction类主要负责对用户等级进行设置
  * @author zhaozhiyang
  *
  */
 public class GradeAction extends BaseAction<BmwSyscode> {
-
+	private String smallGrade;
+	private String largeGrade;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 所有的买家用户等级列表
+	 */
+	public String listBuyer(){
+		ExecuteResult eResult;
+		try {
+			List<BmwSyscode> curGrades=(List<BmwSyscode>) baseService.find("from BmwSyscode where state=? and type=?", CommonConst.STATE_NORMAL,CommonConst.SYSCODE_TYPE_USER_GRADE);
+			ScoreCompartorASC curCompare=new ScoreCompartorASC();
+			Collections.sort(curGrades, curCompare);
+			List<ObjParam> curParams=new ArrayList<ObjParam>();
+			if(curGrades!=null){
+				for(BmwSyscode e:curGrades){
+					ObjParam curP=new ObjParam();
+					curP.setId(e.getSyscodeId());
+					curP.setLargeScore(e.getSdesc());
+					curP.setSmallScore(e.getContent().split("-")[0]);
+					curP.setLargeScore(e.getContent().split("-")[1]);
+					curP.setName(e.getName());
+					curParams.add(curP);
+				}
+			}
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC, curParams);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
+	/**
+	 * 所有的买家用户等级列表
+	 */
+	public String listSeller(){
+		ExecuteResult eResult;
+		try {
+			List<BmwSyscode> curGrades=(List<BmwSyscode>) baseService.find("from BmwSyscode where state=? and type=?", CommonConst.STATE_NORMAL,CommonConst.SYSCODE_TYPE_SELLER_USER_GRADE);
+			ScoreCompartorASC curCompare=new ScoreCompartorASC();
+			Collections.sort(curGrades, curCompare);List<ObjParam> curParams=new ArrayList<ObjParam>();
+			if(curGrades!=null){
+				for(BmwSyscode e:curGrades){
+					ObjParam curP=new ObjParam();
+					curP.setId(e.getSyscodeId());
+					curP.setLargeScore(e.getSdesc());
+					curP.setSmallScore(e.getContent().split("-")[0]);
+					curP.setLargeScore(e.getContent().split("-")[1]);
+					curP.setName(e.getName());
+					curParams.add(curP);
+				}
+			}
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC, curParams);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
 	
+	/**
+	 * 新增买家等级
+	 * @return
+	 */
+	public String addBuyer(){
+		ExecuteResult eResult;
+		try {
+			BmwSyscode curSys=new BmwSyscode();
+			curSys.setState(CommonConst.STATE_NORMAL);
+			curSys.setType(CommonConst.SYSCODE_TYPE_USER_GRADE);
+			curSys.setContent(this.smallGrade+"-"+this.largeGrade);
+			curSys.setSdesc(this.entity.getSdesc());
+			baseService.save(curSys);
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curSys);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
+	
+	/**
+	 * 新增卖家等级
+	 * @return
+	 */
+	public String addSeller(){
+		ExecuteResult eResult;
+		try {
+			BmwSyscode curSys=new BmwSyscode();
+			curSys.setState(CommonConst.STATE_NORMAL);
+			curSys.setType(CommonConst.SYSCODE_TYPE_SELLER_USER_GRADE);
+			curSys.setContent(this.smallGrade+"-"+this.largeGrade);
+			curSys.setSdesc(this.entity.getSdesc());
+			baseService.save(curSys);
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curSys);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
+	
+	/**
+	 * 编辑买家等级
+	 * @return
+	 */
+	public String edit(){
+		ExecuteResult eResult;
+		try {
+			double curSmallGrade=Double.valueOf(this.smallGrade);
+			double curLargeGrade=Double.valueOf(this.largeGrade);
+			if(curSmallGrade>curLargeGrade){
+				eResult = new ExecuteResult(false, CommonConst.GRADE_ERROR_NORMAL);
+				this.result = JSONObject.fromObject(eResult).toString();
+				return JSON;
+			}
+			BmwSyscode curSys=(BmwSyscode) baseService.findById(BmwSyscode.class,this.entity.getSyscodeId());
+			List<BmwSyscode> curGrades=(List<BmwSyscode>) baseService.find("from BmwSyscode where state=? and type=?", CommonConst.STATE_NORMAL,CommonConst.SYSCODE_TYPE_SELLER_USER_GRADE);
+			ScoreCompartorASC curCompare=new ScoreCompartorASC();
+			Collections.sort(curGrades, curCompare);
+			BmwSyscode beforeSys=null;
+			BmwSyscode afterSys=null;
+			for(int i=0;i<curGrades.size();i++){
+				if(curGrades.get(i).getSyscodeId().equals(this.entity.getSyscodeId())){
+					if(i>0){
+						beforeSys=curGrades.get(i-1);
+						if(i+1<curGrades.size()){
+							afterSys=curGrades.get(i+1);
+						}
+					}
+				}
+			}
+			if(beforeSys!=null){
+				String smallGradeParam=beforeSys.getContent().split("-")[0];
+				double smallGradeDouble = Double.valueOf(smallGradeParam);
+				if(curSmallGrade!=smallGradeDouble){
+					eResult = new ExecuteResult(false, CommonConst.GRADE_ERROR_SMALL);
+					this.result = JSONObject.fromObject(eResult).toString();
+					return JSON;
+				}
+			}
+			if(afterSys!=null){
+				String largeGradeParam=afterSys.getContent().split("-")[0];
+				double largeGradeDouble = Double.valueOf(largeGradeParam);
+				if(curLargeGrade!=largeGradeDouble){
+					eResult = new ExecuteResult(false, CommonConst.GRADE_ERROR_LARGE);
+					this.result = JSONObject.fromObject(eResult).toString();
+					return JSON;
+				}
+			}
+			curSys.setContent(this.smallGrade+"-"+this.largeGrade);
+			curSys.setSdesc(this.entity.getSdesc());
+			baseService.save(curSys);
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curSys);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
+	
+	
+	
+	
+	
+	
+
+	public String getSmallGrade() {
+		return smallGrade;
+	}
+
+	public void setSmallGrade(String smallGrade) {
+		this.smallGrade = smallGrade;
+	}
+
+	public String getLargeGrade() {
+		return largeGrade;
+	}
+
+	public void setLargeGrade(String largeGrade) {
+		this.largeGrade = largeGrade;
+	}
+}
+class ObjParam{
+	private String id;
+	private String name;
+	private String smallScore;
+	private String largeScore;
+	private String desc;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSmallScore() {
+		return smallScore;
+	}
+	public void setSmallScore(String smallScore) {
+		this.smallScore = smallScore;
+	}
+	public String getLargeScore() {
+		return largeScore;
+	}
+	public void setLargeScore(String largeScore) {
+		this.largeScore = largeScore;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 }

@@ -1176,27 +1176,7 @@ public class StringUtil extends StringUtils {
 	       return sReturn;
 	  } 
 	 
-	 public static String getOriginalPicUrl(String imgUrl){
-		 String[] pics = {
-				 "_"+CommonConst.THUMBNAIL_BIG,
-				 "_"+CommonConst.THUMBNAIL_MIDDLE,
-				 "_"+CommonConst.THUMBNAIL_SMALL,
-				 "_"+CommonConst.THUMBNAIL_LITTLE,
-				 "_"+CommonConst.THUMBNAIL_TINY
-					
-		 };
-		 int index = imgUrl.lastIndexOf(".");
-		 String post = imgUrl.substring(index);
-		 index = -1;
-		 for(String pic : pics){
-			 index = imgUrl.lastIndexOf(pic);
-			 if(index > -1){
-				 return imgUrl.substring(0, index) + post;
-			 }
-		 }
-		 return imgUrl;
-	 }
-	 
+	
 	 public static String hightlight(String s,String key){
 		 return s.replaceAll(key, "<strong class=\"hightlight\">"+key+"</strong>");
 	 }

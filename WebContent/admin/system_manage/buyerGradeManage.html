@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
-<title>客户追踪记录</title>
+<title>买家等级管理</title>
 <link type="text/css" href="../css/css.css" rel="stylesheet" />
 <link type="text/css" href="../js/datepicker/datepicker.css" rel="stylesheet" />
 <script type="text/javascript" src="../js/core/jquery.js"></script>
@@ -20,12 +20,9 @@
 		"curState": 0, 
 		"curId": 0,
 		"curData": {},
-		"searchCard": null,
-		"floatPanel": null,
-		"lastScore": null
+		"floatPanel": null
 	};
 	$(document).ready(function() {
-		PAGE_PARAM.searchCard = $("#search_card");
 		PAGE_PARAM.floatPanel = $("#float_add");
 		PAGE_PARAM.clientIpt = $("#add_cname");
 		getPage(1);
@@ -33,18 +30,6 @@
 	});
 	
 	initActions = function(){
-		var offset_search = $("#op_search").offset();
-		PAGE_PARAM.searchCard.css({"left": offset_search.left+"px", "top": (offset_search.top+20)+"px"});
-		$("#op_search").click(function(){
-			PAGE_PARAM.searchCard.slideToggle('fast');
-		});
-		PAGE_PARAM.searchCard.find("input.scancel").click(function(){
-			PAGE_PARAM.searchCard.slideToggle('fast');
-		});
-		PAGE_PARAM.searchCard.find("input.sconfirm").click(function(){
-			PAGE_PARAM.searchCard.slideToggle('fast');
-			getPage(1);
-		});
 		PAGE_PARAM.floatPanel.find("input.bcancel").click(function(){
 			PAGE_PARAM.floatPanel.slideUp("fast");
 			$.showAddBg(false);
@@ -56,30 +41,24 @@
 		var html = "";
 		html += "<td><div class=\"num\">"+obj.SERIAL+"</div></td>";
 		html += "<td><div>"+obj.name+"</div></td>";
-		html += "<td><div>"+obj.start+"</div></td>";
-		html += "<td><div>"+obj.end+"</div></td>";
+		html += "<td><div>"+obj.smallScore+"</div></td>";
+		html += "<td><div>"+obj.largeScore+"</div></td>";
 		html += "<td><div>"+obj.desc+"</div></td>";
-		html += "<td><div class=\"date\"><a onclick=\"editObjShow('"+obj.id+"');\">编辑</a>"
-			+"<a onclick=\"delObj('"+obj.ctrackId+"');\" class=\"del\">删除</a></div></td>";
+		html += "<td><div class=\"date\"><a onclick=\"editObjShow('"+obj.id+"');\">编辑</a></div></td>";
 		return html;
 	};
 	
 	getPage = function(page){
 		PAGE_PARAM.curPage = page;
 		var startIndex = (PAGE_PARAM.curPage-1)*PAGE_PARAM.pageSize;
-		var params = {};
-		params.ctrackCname = $("#search_cname").val().trim();
-		params.ctrackMemo = $("#search_memo").val().trim();
-		params.startIndex = startIndex;
-		params.page = PAGE_PARAM.curPage;
-		params.pageSize = PAGE_PARAM.pageSize;
 		$.ajax({
 			type : "get",
-			url : "/mvc/client/ctrack/list"
+			url : "/admin/system/listBuyerGrade"
 				+"?ts="+new Date().getTime(),
 			dataType : "json",
-			data : params
+			data :{}
 		}).done(function(result){
+			result = eval('(' + result + ')');
 			if(result.isTrue) {
 				if(result.tag.totalCount==0) {
 					$("#page_op").initPagination('getPage', 1, PAGE_PARAM.curPage);
@@ -94,8 +73,8 @@
 				for(var i=0; i<result.tag.items.length; i++){
 					var obj = result.tag.items[i];
 					obj.SERIAL = startIndex+i+1;
-					PAGE_PARAM.curData[obj.ctrackId] = obj;
-					html += "<tr id=\""+obj.ctrackId+"\">"+formatHtml(obj)+"</tr>";
+					PAGE_PARAM.curData[obj.id] = obj;
+					html += "<tr id=\""+obj.id+"\">"+formatHtml(obj)+"</tr>";
 				}
 				$("#list_data").html(html);
 			} else {

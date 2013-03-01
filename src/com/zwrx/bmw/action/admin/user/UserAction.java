@@ -1,7 +1,5 @@
 package com.zwrx.bmw.action.admin.user;
 
-import java.util.Calendar;
-import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -68,6 +66,23 @@ public class UserAction extends BaseAction<BmwUser> {
 			curUser.setState(CommonConst.STATE_NORMAL);
 			baseService.update(curUser);
 			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curUser);
+		} catch (Exception e) {
+			e.printStackTrace();
+			eResult = new ExecuteResult(false, ERR_Desc);
+		}
+		this.result = JSONObject.fromObject(eResult).toString();
+		return JSON;
+	}
+	
+	/**
+	 * 根据用户名、手机号码进行检索待审核的卖家申请
+	 * @return
+	 */
+	public String listWaitCheck(){
+		ExecuteResult eResult;
+		try {
+			
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC);
 		} catch (Exception e) {
 			e.printStackTrace();
 			eResult = new ExecuteResult(false, ERR_Desc);

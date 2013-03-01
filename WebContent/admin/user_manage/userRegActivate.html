@@ -78,7 +78,7 @@
 		params.userId =userId;
 		$.ajax({
 			type : "get",
-			url : "/admin/activateUser"
+			url : "/admin/user/activateUser"
 				+"?ts="+new Date().getTime(),
 			dataType : "json",
 			data : params
@@ -112,7 +112,7 @@
 		params.pageSize = PAGE_PARAM.pageSize;
 		$.ajax({
 			type : "get",
-			url : "/admin/listUser"
+			url : "/admin/user/listUser"
 				+"?ts="+new Date().getTime(),
 			dataType : "json",
 			data : params

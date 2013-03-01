@@ -130,13 +130,5 @@ public class BmwAttachment implements java.io.Serializable {
 		this.uploadTime = uploadTime;
 	}
 
-	
-	@Transient
-	public String getFileSvrPath(){
-		if(StringUtil.isBlank(serverPath))
-			return ConfConst.FILE_SVR+CommonConst.NO_PHOTO;
-		else
-		return ConfConst.FILE_SVR+serverPath;
-	}
 
 }
