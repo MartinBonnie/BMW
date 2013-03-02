@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="admin" extends="bmw-default" namespace="/admin">
+	<package name="admin" extends="bmw-default" namespace="/admin/user">
 		<!--全局跳转 -->
 		<global-results>
 			<result name="index" type="redirect">/admin/main.html</result>
@@ -23,7 +23,24 @@
 			<result name="input">/admin/login.html</result>
 			<result name="json" type="json"><param name="root">result</param></result>
 		</action>
-			
+		
+		<action name="*Seller" class="sellerAdminAction"
+			method="{1}">
+			<result name="json" type="json"><param name="root">result</param></result>
+		</action>	
+		
+		<action name="*User" class="userAdminAction"
+			method="{1}">
+			<result name="json" type="json"><param name="root">result</param></result>
+		</action>	
+
+	</package>
+	<package name="system" extends="bmw-default" namespace="/admin/system">
+		<!--等级管理 -->		
+		<action name="*Grade" class="gradeAdminAction"
+			method="{1}">
+			<result name="json" type="json"><param name="root">result</param></result>
+		</action>
 
 	</package>
 	

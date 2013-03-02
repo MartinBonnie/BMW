@@ -21,8 +21,8 @@
 		<!-- Login -->
 		<action name="*User" class="userAction"
 			method="{1}">
-			<result name="input">/customer/user/login.jsp</result>
-			<result name="success">/customer/user/success.jsp</result>
+			<result name="input">/user/login.jsp</result>
+			<result name="success">/user/success.jsp</result>
 		</action>
 			
 
