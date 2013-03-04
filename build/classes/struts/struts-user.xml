@@ -6,9 +6,9 @@
 	<package name="user" extends="bmw-default" namespace="/user">
 		<!--全局跳转 -->
 		<global-results>
-			<result name="index" type="redirect">/customer/index.jsp</result>
-			<result name="error">/customer/result.jsp</result>
-			<result name="login">/customer/user/login.jsp</result>
+			<result name="index" type="redirect">/user/index.jsp</result>
+			<result name="error">/user/result.jsp</result>
+			<result name="login">/user/login.jsp</result>
 		</global-results>
 		<!--用户注销 -->
 		<action name="logout" class="userAction"
@@ -22,7 +22,8 @@
 		<action name="*User" class="userAction"
 			method="{1}">
 			<result name="input">/user/login.jsp</result>
-			<result name="success">/user/success.jsp</result>
+			<result name="success">/user/reg_success.jsp</result>
+			<result name="index" type="redirect">/user/index.jsp</result>
 			<result name="json">/user/success.jsp</result>
 			<result name="edit">/user/editUsr.jsp</result>
 		</action>

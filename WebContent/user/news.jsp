@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -64,14 +67,14 @@
          <div class="menu">
          	<a href="#" class="more"><i></i>查看更多</a>
             <ul>
-                <li><a href="#" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
-                <li><a href="#" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
-                <li><a href="#" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
+                <li><a href="index.jsp" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
+                <li><a href="product.jsp" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
+                <li><a href="customer.jsp" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
                 <li><a href="#" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
                 <li><a href="#" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
-                <li><a href="#" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
+                <li><a href="news.jsp" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
                 <li><a href="#" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
-                <li><a href="#" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
+                <li><a href="account.jsp" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
             </ul>
         </div>
         
@@ -82,66 +85,49 @@
         	<div class="sideRight">
             	<div class="title">
                     <ul>
-                        <li class="current"><a href="#"><span>公司信息列表</span></a></li>
-                        
+                        <li class="current"><a href="#"><span>资讯点击排行榜</span></a></li>
+                        <li><a href="#"><span>资讯搜索排行榜</span></a></li>
+                    </ul>
+                </div>
+                <div class="newsList">
+                	<ul>
+                    	<li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
+                        <li><span><a href="#">编辑</a> | <a href="#">删除</a></span><a href="#">[春天有礼] 今天梦想大奖：运动休闲品牌EXR服装两套</a></li>
                     </ul>
                 </div>
                 
-                <table class="table1">
-                	<thead>
-                    	<tr>	                             	
-                        	<th width="60">主营产品: </th><td>销售:手机 采购</td>
-                            <th width="60">主营行业: </th><td>通信产品</td>
-                        </tr>
-                        <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                        <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                        <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                        <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                         <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                         <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                         <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                         <tr>	                             	
-                        	<th>主营产品: </th><td>销售:手机 采购</td>
-                            <th>主营行业: </th><td>通信产品</td>
-                        </tr>
-                    </thead>
-                </table>
                 
-                
+                <div class="page"><a href="#">&lt;&lt;</a><a href="#">1</a><a href="#" class="current">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">&gt;&gt;</a></div>
             </div>
         
         	<div class="sideLeft">
             	<ul>
-                	<li class="current"><a href="#">公司信息管理</a></li>
-                    <li><a href="#">账户密码管理</a></li>
-                    <li><a href="#">公司简介</a></li>
-                    <li><a href="#">公司证书管理</a></li>
+                	<li class="current"><a href="#">发布资讯</a></li>
+                    <li><a href="#">管理资讯</a></li>
+                    <li><a href="#">产品分类</a></li>
+                    <li><a href="#">定制资讯</a></li>
                     
                 </ul>
             </div>
             
             
+
+
+
+
+
+
+
             
         </div>
         
@@ -150,6 +136,6 @@
     </div>
     
 </div>
-<div id="foot">Copyright © 2000-2011 东方五金版权所有</div>
+<div id="foot">Copyright © 2000-2011 版权所有</div>
 </body>
 </html>
