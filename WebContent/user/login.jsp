@@ -10,7 +10,7 @@
 <center>
 	<form name="login" action="loginUser" method="post">
 			用户名：<input name="username" type="text"/><br/>
-			密码：<input name="password" type="text"/><br/>
+			密码：<input name="password" type="password"/><br/>
 			<input type="submit" value="登录"/>
 	</form>
 </center>

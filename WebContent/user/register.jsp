@@ -11,8 +11,8 @@
 	<form name="register" action="registerUser" method="post">
 			用户名：<input name="username" type="text"/><br/>
 			昵称：<input name="name" type="text"/><br/>
-			密码：<input name="password" type="text"/><br/>
-			密码确认：<input name="password" type="text"/><br/>
+			密码：<input name="password" type="password"/><br/>
+			密码确认：<input name="password2" type="password"/><br/>
 			地址：<input name="address" type="text"/><br/>
 			<input type="submit" value="提交"/>
 	</form>

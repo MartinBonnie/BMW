@@ -1182,10 +1182,11 @@ CREATE TABLE `bmw_user` (
   `edit_ip` varchar(20) DEFAULT NULL,
   `last_time` datetime DEFAULT NULL,
   `last_ip` varchar(20) DEFAULT NULL,
+  `audit` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bmw_user
 -- ----------------------------
-INSERT INTO `bmw_user` VALUES ('40288c833c66e305013c66e558f10000', 'user001', '111111', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bmw_user` VALUES ('40288c833c66e305013c66e558f10000', 'user001', '111111', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
