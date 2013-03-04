@@ -2,7 +2,13 @@ package com.zwrx.bmw.action.customer.user;
 
 import java.util.List;
 
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONObject;
+
 import com.zwrx.bmw.action.BaseAction;
+import com.zwrx.bmw.common.CommonConst;
 import com.zwrx.bmw.models.BmwUser;
 
 public class UserAction extends BaseAction<BmwUser> {
@@ -34,7 +40,7 @@ public class UserAction extends BaseAction<BmwUser> {
 			List<BmwUser> userLst=(List<BmwUser>)baseService.find(hql, username);
 			if(userLst.size()>0){
 				System.out.println("登陆者："+userLst.get(0));
-				this.getSession().setAttribute("user", userLst.get(0));
+				this.getSession().setAttribute(CommonConst.SESSION_USER, userLst.get(0));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -46,8 +52,15 @@ public class UserAction extends BaseAction<BmwUser> {
 	 * 编辑个人信息
 	 * @return
 	 */
-	public String editMyInfo(){
-		return SUCCESS;
+	public String edit(){
+		BmwUser bmwUser=(BmwUser)this.getSession().getAttribute(CommonConst.SESSION_USER);
+		JSONObject json=JSONObject.fromObject(bmwUser);
+		return this.JSON;
+	}
+	public String doEdit(){
+		System.out.println("修改后的用户信息："+entity);
+		baseService.saveOrUpdate(entity);
+		return this.EDIT;
 	}
 	/**
 	 * 找回密码
@@ -55,5 +68,12 @@ public class UserAction extends BaseAction<BmwUser> {
 	 */
 	public String findPwd(){
 		return SUCCESS;
+	}
+	public String logout(){
+		HttpSession session=this.getSession();		
+		BmwUser user=(BmwUser)session.getAttribute(CommonConst.SESSION_USER);
+		session.invalidate();
+		System.out.println("用户："+user.getUsername()+"登出系统！");
+		return this.INDEX;
 	}
 }

@@ -14,7 +14,7 @@
 		<action name="logout" class="userAction"
 			method="logout">
 			<result name="login" type="redirect">/</result>
-			<result name="index" type="redirect">/customer/login.jsp</result>
+			<result name="index" type="redirect">/user/login.jsp</result>
 		</action>
 		
 				
@@ -23,9 +23,9 @@
 			method="{1}">
 			<result name="input">/user/login.jsp</result>
 			<result name="success">/user/success.jsp</result>
+			<result name="json">/user/success.jsp</result>
+			<result name="edit">/user/editUsr.jsp</result>
 		</action>
-			
-
 	</package>
 	
 </struts>
