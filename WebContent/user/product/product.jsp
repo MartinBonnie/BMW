@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台首页</title>
-<link href="content/css/css.css" rel="stylesheet" type="text/css" />
-<script src="content/js/jquery.js"></script>
-<script src="content/js/slider.js"></script>
+<link href="../content/css/css.css" rel="stylesheet" type="text/css" />
+<script src="../content/js/jquery.js"></script>
+<script src="../content/js/slider.js"></script>
 <script>
 	$(function(){
 		$("#nav li a").click(function(){
@@ -36,7 +36,7 @@
             	<input type="text" class="txt" value="请输入关键字" /><input type="button" value="搜索"  class="btn"/>
             </div>
         	<div class="topbar">
-            	<h1>我的后台</h1><p><span>你好<em><s:property value="#session.bmwUser.name"/></em></span><a href="logout">退出</a><span>|</span><a href="#">返回</a><span>|</span><a href="#">管理账号</a><span>|</span><a href="#"><img src="content/images/email.png" />消息提醒（<strong>2</strong>）</a> </p>
+            	<h1>我的后台</h1><p><span>你好<em>[<s:property value="#session.bmwUser.name"/>]</em></span><a href="../logout">退出</a><span>|</span><a href="#">返回</a><span>|</span><a href="#">管理账号</a><span>|</span><a href="#"><img src="../content/images/email.png" />消息提醒（<strong>2</strong>）</a> </p>
             </div>
             <div id="nav">
             	<div class="r">
@@ -67,14 +67,14 @@
          <div class="menu">
          	<a href="#" class="more"><i></i>查看更多</a>
             <ul>
-                <li><a href="index.jsp" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
-                <li><a href="product.jsp" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
-                <li><a href="customer.jsp" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
-                <li><a href="order.jsp" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
-                <li><a href="shop.jsp" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
-                <li><a href="news.jsp" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
-                <li><a href="bank.jsp" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
-                <li><a href="account.jsp" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
+                <li><a href="../index.jsp" title="首页"><img src="../content/images/nav/1.png" />首页</a></li>
+                <li><a href="../product/product.jsp" title="产品"><img src="../content/images/nav/2.png" />产品</a></li>
+                <li><a href="../customer/customer.jsp" title="客户"><img src="../content/images/nav/3.png" />客户</a></li>
+                <li><a href="../order/order.jsp" title="交易"><img src="../content/images/nav/4.png" />交易</a></li>
+                <li><a href="../shop/shop.jsp" title="旺铺"><img src="../content/images/nav/5.png" />旺铺</a></li>
+                <li><a href="../news/news.jsp" title="资讯"><img src="../content/images/nav/6.png" />资讯</a></li>
+                <li><a href="../bank/bank.jsp" title="银行"><img src="../content/images/nav/7.png" />银行</a></li>
+                <li><a href="../account/account.jsp" title="账号"><img src="../content/images/nav/1.png" />账号</a></li>
             </ul>
         </div>
         
@@ -124,7 +124,7 @@
                     </thead>
                     <tbody>
                     	<tr>
-                        	<td><img src="content/images/pic.jpg" /></td>
+                        	<td><img src="../content/images/pic.jpg" /></td>
                             <td>ceshi</td>
                             <td>2010-9-18 13:54:21 </td>
                             <td><select><option>1</option></select></td>
@@ -133,7 +133,7 @@
                             <td class="last"><a href="#">修改</a>|<a href="#">已显示</a>|<a href="#">刷新</a>|<a href="#">删除</a></td>
                         </tr>
                         <tr>
-                        	<td><img src="content/images/pic.jpg" /></td>
+                        	<td><img src="../content/images/pic.jpg" /></td>
                             <td>ceshi</td>
                             <td>2010-9-18 13:54:21 </td>
                             <td><select><option>1</option></select></td>
@@ -142,7 +142,7 @@
                             <td class="last"><a href="#">修改</a>|<a href="#">已显示</a>|<a href="#">刷新</a>|<a href="#">删除</a></td>
                         </tr>
                         <tr>
-                        	<td><img src="content/images/pic.jpg" /></td>
+                        	<td><img src="../content/images/pic.jpg" /></td>
                             <td>ceshi</td>
                             <td>2010-9-18 13:54:21 </td>
                             <td><select><option>1</option></select></td>
@@ -151,7 +151,7 @@
                             <td class="last"><a href="#">修改</a>|<a href="#">已显示</a>|<a href="#">刷新</a>|<a href="#">删除</a></td>
                         </tr>
                         <tr>
-                        	<td><img src="content/images/pic.jpg" /></td>
+                        	<td><img src="../content/images/pic.jpg" /></td>
                             <td>ceshi</td>
                             <td>2010-9-18 13:54:21 </td>
                             <td><select><option>1</option></select></td>
@@ -160,7 +160,7 @@
                             <td class="last"><a href="#">修改</a>|<a href="#">已显示</a>|<a href="#">刷新</a>|<a href="#">删除</a></td>
                         </tr>
                         <tr>
-                        	<td><img src="content/images/pic.jpg" /></td>
+                        	<td><img src="../content/images/pic.jpg" /></td>
                             <td>ceshi</td>
                             <td>2010-9-18 13:54:21 </td>
                             <td><select><option>1</option></select></td>

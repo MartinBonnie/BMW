@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -63,14 +64,14 @@
          <div class="menu">
          	<a href="#" class="more"><i></i>查看更多</a>
             <ul>
-                <li><a href="index.jsp" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
-                <li><a href="product.jsp" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
-                <li><a href="customer.jsp" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
-                <li><a href="order.jsp" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
-                <li><a href="shop.jsp" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
-                <li><a href="news.jsp" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
-                <li><a href="bank.jsp" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
-                <li><a href="account.jsp" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
+                <li><a href="" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
+                <li><a href="product/product.jsp" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
+                <li><a href="customer/customer.jsp" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
+                <li><a href="order/order.jsp" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
+                <li><a href="shop/shop.jsp" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
+                <li><a href="news/news.jsp" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
+                <li><a href="bank/bank.jsp" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
+                <li><a href="account/account.jsp" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
             </ul>
         </div>
         

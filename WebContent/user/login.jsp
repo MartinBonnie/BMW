@@ -12,12 +12,11 @@
 <script src="<s:url value="/user/content/js/jquery.js"/>"></script>
 <script src="<s:url value="/user/content/js/slider.js"/>"></script>
 <script type="text/javascript" src="<s:url value="/user/content/js/common.js"/>"></script>
-<script type="text/javascript"
-	src="<s:url value="/user/content/js/vericode.js"/>"></script>
+<script type="text/javascript" src="<s:url value="/user/content/js/vericode.js"/>"></script>
 </head>
 <body>
 	<div class="wraper ">
-		<div id="wrap">
+		<div id="wrap"><s:property value="info"/>
 			<s:include value="/user/include/nolog_head.jsp" />
 			<s:if test="result!=''&&result!=null">
 				<div id="warning">${result}</div>
