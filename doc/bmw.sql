@@ -12,7 +12,9 @@ File Encoding         : 65001
 
 Date: 2013-02-22 20:24:28
 */
-
+drop database if exists bmw;
+create database bmw charset utf8;
+use bmw;
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `bmw_account`
@@ -112,6 +114,9 @@ INSERT INTO `bmw_admin` VALUES ('1', 'jad', '5eac284f20692089267f44452e2f5f4d', 
 
 -- ----------------------------
 -- Table structure for `bmw_attachment`
+-- ,
+--  KEY `att_fk_1` (`user_id`) USING BTREE,
+--  CONSTRAINT `bmw_attachment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `bmw_user` (`user_id`)
 -- ----------------------------
 DROP TABLE IF EXISTS `bmw_attachment`;
 CREATE TABLE `bmw_attachment` (
@@ -125,9 +130,7 @@ CREATE TABLE `bmw_attachment` (
   `content` text,
   `upload_time` datetime DEFAULT NULL,
   `file_size` decimal(10,4) DEFAULT NULL,
-  PRIMARY KEY (`att_id`),
-  KEY `att_fk_1` (`user_id`) USING BTREE,
-  CONSTRAINT `bmw_attachment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `bmw_user` (`user_id`)
+  PRIMARY KEY (`att_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1179,10 +1182,11 @@ CREATE TABLE `bmw_user` (
   `edit_ip` varchar(20) DEFAULT NULL,
   `last_time` datetime DEFAULT NULL,
   `last_ip` varchar(20) DEFAULT NULL,
+  `audit` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bmw_user
 -- ----------------------------
-INSERT INTO `bmw_user` VALUES ('40288c833c66e305013c66e558f10000', 'user001', '111111', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `bmw_user` VALUES ('40288c833c66e305013c66e558f10000', 'user001', '111111', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);

@@ -1,3 +1,4 @@
+use bmw;
 insert into ngb_syscode (SYSCODE_ID, TYPE, CLASS, FATHERDICT, NAME, SDESC, SIGN, STATE, CONTENT)
 values ('7', '01', '', '', '黑龙江', '', 'heilongjiang', '01', '');
 

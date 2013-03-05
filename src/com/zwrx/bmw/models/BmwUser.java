@@ -53,6 +53,14 @@ public class BmwUser implements java.io.Serializable {
 
 	public BmwUser(String userId) {
 		this.userId = userId;
+	}		
+
+	@Override
+	public String toString() {
+		return "BmwUser [userId=" + userId + ", username=" + username
+				+ ", password=" + password + ", type=" + type + ", email="
+				+ email + ", name=" + name + ", address=" + address + ", qq="
+				+ qq + "]";
 	}
 
 	@Id

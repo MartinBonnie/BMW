@@ -82,7 +82,7 @@ public class CommonConst {
 	/**
 	 * Session相关
 	 */
-	public static String SESSION_USER = "bwmUser";								//用户登录系统后存session时的key
+	public static String SESSION_USER = "bmwUser";								//用户登录系统后存session时的key
 	public static String SESSION_ADMIN = "bmwAdmin";							//管理员登录系统后存session时的key
 	public static final String APPLICATION_AUDIT_USERS="auditedUsers";			//认证审核时用到
 	public static final String SESSIONATTACHMENTS = "tempattachments";

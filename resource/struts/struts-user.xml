@@ -6,26 +6,28 @@
 	<package name="user" extends="bmw-default" namespace="/user">
 		<!--全局跳转 -->
 		<global-results>
-			<result name="index" type="redirect">/customer/index.jsp</result>
-			<result name="error">/customer/result.jsp</result>
-			<result name="login">/customer/user/login.jsp</result>
+			<result name="index" type="redirect">/user/index.jsp</result>
+			<result name="error">/user/result.jsp</result>
+			<result name="login">/user/login.jsp</result>
 		</global-results>
 		<!--用户注销 -->
 		<action name="logout" class="userAction"
 			method="logout">
 			<result name="login" type="redirect">/</result>
-			<result name="index" type="redirect">/customer/login.jsp</result>
+			<result name="index" type="redirect">/user/login.jsp</result>
 		</action>
 		
 				
 		<!-- Login -->
 		<action name="*User" class="userAction"
 			method="{1}">
-			<result name="input">/customer/user/login.jsp</result>
-			<result name="success">/customer/user/success.jsp</result>
+			<result name="input">/user/login.jsp</result>
+			<result name="success">/user/reg_success.jsp</result>
+			<result name="index" type="redirect">/user/index.jsp</result>
+			<result name="login" type="redirect">/user/login.jsp</result>
+			<result name="json">/user/success.jsp</result>
+			<result name="edit">/user/editUsr.jsp</result>
 		</action>
-			
-
 	</package>
 	
 </struts>
