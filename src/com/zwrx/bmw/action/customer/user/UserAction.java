@@ -82,7 +82,9 @@ public class UserAction extends BaseAction<BmwUser> {
 		HttpSession session=this.getSession();		
 		BmwUser user=(BmwUser)session.getAttribute(CommonConst.SESSION_USER);
 		session.invalidate();
-		System.out.println("用户："+user.getUsername()+"登出系统！");
+		if(user!=null){
+			System.out.println("用户："+user.getUsername()+"登出系统！");
+		}
 		return this.INDEX;
 	}
 }

@@ -18,7 +18,7 @@
 <body>
 	<div class="wraper ">
 		<div id="wrap">
-			<s:include value="/customer/include/nolog_head.jsp" />
+			<s:include value="/user/include/nolog_head.jsp" />
 			<s:if test="result!=''&&result!=null">
 				<div id="warning">${result}</div>
 			</s:if>
@@ -76,6 +76,6 @@
 			</div>
 		</div>
 	</div>
-	<s:include value="/customer/include/nolog_footer.jsp" />
+	<s:include value="/user/include/nolog_footer.jsp" />
 </body>
 </html>
