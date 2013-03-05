@@ -206,9 +206,9 @@ $.fn.checkIpt = function(type){
 				self.removeClass("err").nextAll(".err").empty();
 			}
 			break;
-		case "vno":
-			if(!value.rangeLen(1, 16)) {
-				self.addClass("err").nextAll(".err").html("车牌的长度为1到16个字符！");
+		case "gradeName":
+			if(!value.rangeLen(1, 50)) {
+				self.addClass("err").nextAll(".err").html("车牌的长度为1到50个字符！");
 			} else {
 				self.removeClass("err").nextAll(".err").empty();
 			}
