@@ -48,6 +48,8 @@ public class BmwUser implements java.io.Serializable {
 	private Date lastTime;		//上次登录时间
 	private String lastIp;		//上次登录IP
 	private String audit;		//实名认证
+	
+	private String vericode;	//验证码
 	public BmwUser() {
 	}
 
@@ -323,4 +325,13 @@ public class BmwUser implements java.io.Serializable {
 	public void setAudit(String audit) {
 		this.audit = audit;
 	}
+	@Transient
+	public String getVericode() {
+		return vericode;
+	}
+	@Transient
+	public void setVericode(String vericode) {
+		this.vericode = vericode;
+	}
+
 }
