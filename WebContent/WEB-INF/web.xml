@@ -55,13 +55,13 @@
 		<init-param>
 			<param-name>notFilterDir</param-name>
 			<param-value>
-				jquery.js,Login,logout,viewPasswdQuestion,savePasswdQuestion,customer/account/get_username.jsp,customer/account/get_password.jsp,/updatePasswd, /modify_reg.jsp,/login.jsp,/reg.jsp,/register,/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,/userValidate,/userActivation,/getusername,/validateuser,/validateanswer,/get_username.jsp,/get_password.jsp,/validate_answer.jsp,/customer/album/
+				jquery.js,Login,logout,viewPasswdQuestion,savePasswdQuestion,user/account/get_username.jsp,user/account/get_password.jsp,/updatePasswd, /modify_reg.jsp,/login.jsp,/reg.jsp,/register,/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,/userValidate,/userActivation,/getusername,/validateuser,/validateanswer,/get_username.jsp,/get_password.jsp,/validate_answer.jsp,/user/album/
 			</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>LoginFilter</filter-name>
-		<url-pattern>/customer/*</url-pattern>
+		<url-pattern>/user/*</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>LoginFilter</filter-name>
