@@ -34,22 +34,22 @@ public class MailInfo {
 		this.copycc="";
 		this.filepath="";
 		this.to=to;
-		this.body="<html><body>欢迎你注册斗价网！<br/>"+
-		"点击链接激活<br/><p><a href=\"\">xxxx</a></p><br/>"+
-		"<img style=\"width:105px;height:120px;\" src=\"http://img1.gtimg.com/5/597/59763/5976340_980x1200_0.jpg\" alt=\"\"/>"
-		+"<br/>该邮件不必回复。"+"</body></html>";
+		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/BMW/files/main.jpg\""+
+				" width=\"150px\" height=\"150px\" alt=\"点我啊亲\"/>"+
+				"<hr/><p><a href=\"http://localhost/BMW/user/\" >点击链接激活</a></p><br/>"				
+				+"该邮件不必回复。"+"</body></html>";
 	}
 	public MailInfo(String to,String toUser){
 		this.subject=toUser+",恭喜您!成功注册斗价网！";
 		this.from="enttest@126.com";
 		this.toUser=toUser;
-		this.copycc="";
-		this.filepath="";
+		//this.copycc="";
+		//this.filepath="";
 		this.to=to;
-		this.body="<html><body>欢迎你注册斗价网！<br/>"+
-		"点击链接激活<br/><p><a href=\"\">xxxx</a></p><br/>"+
-		"<img src=\"http://t3.baidu.com/it/u=3042232504,2732376640&fm=24&gp=0.jpg\" alt=\"\"/>"
-		+"该邮件不必回复。"+"</body></html>";
+		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/BMW/files/main.jpg\""+
+				" width=\"150px\" height=\"150px\" alt=\"点我啊亲\"/>"+
+				"<hr/><p><a href=\"http://localhost/BMW/user/\" >点击链接激活</a></p><br/>"				
+				+"该邮件不必回复。"+"</body></html>";
 	}
 	public MailInfo(String subject,String from,String to,
 			String body){

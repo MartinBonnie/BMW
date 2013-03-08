@@ -205,6 +205,6 @@
 </div>
 
 <div class="shade"></div>
-<s:include value="/customer/include/nolog_footer.jsp" />
+<s:include value="/user/include/nolog_footer.jsp" />
 </body>
 </html>
