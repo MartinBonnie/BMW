@@ -50,10 +50,10 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 			List<BmwSyscode> curGrades=pageList.getItems();
 			ScoreCompartorASC curCompare=new ScoreCompartorASC();
 			Collections.sort(curGrades, curCompare);
-			List<ObjParam> curParams=new ArrayList<ObjParam>();
+			List<GradeObject> curParams=new ArrayList<GradeObject>();
 			if(curGrades!=null){
 				for(BmwSyscode e:curGrades){
-					ObjParam curP=new ObjParam();
+					GradeObject curP=new GradeObject();
 					curP.setId(e.getSyscodeId());
 					curP.setDesc(e.getSdesc());
 					curP.setSmallScore(e.getContent().split("-")[0]);
@@ -88,12 +88,13 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 			pageList = baseService.findPageByCriteria(detachedCriteria, pageSize,startIndex);
 			List<BmwSyscode> curGrades=pageList.getItems();
 			ScoreCompartorASC curCompare=new ScoreCompartorASC();
-			Collections.sort(curGrades, curCompare);List<ObjParam> curParams=new ArrayList<ObjParam>();
+			Collections.sort(curGrades, curCompare);
+			List<GradeObject> curParams=new ArrayList<GradeObject>();
 			if(curGrades!=null){
 				for(BmwSyscode e:curGrades){
-					ObjParam curP=new ObjParam();
+					GradeObject curP=new GradeObject();
 					curP.setId(e.getSyscodeId());
-					curP.setLargeScore(e.getSdesc());
+					curP.setDesc(e.getSdesc());
 					curP.setSmallScore(e.getContent().split("-")[0]);
 					curP.setLargeScore(e.getContent().split("-")[1]);
 					curP.setName(e.getName());
@@ -128,6 +129,7 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 			Collections.sort(curGrades, curCompare);
 			BmwSyscode lastSys=null;
 			BmwSyscode curSys=new BmwSyscode();
+			curSys.setName(this.entity.getName());
 			curSys.setState(CommonConst.STATE_NORMAL);
 			curSys.setType(CommonConst.SYSCODE_TYPE_USER_GRADE);
 			curSys.setSdesc(this.entity.getSdesc());
@@ -147,7 +149,13 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 				curSys.setContent(this.smallGrade+"-"+this.largeGrade);
 			}
 			baseService.save(curSys);
-			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curSys);
+			GradeObject curP=new GradeObject();
+			curP.setId(curSys.getSyscodeId());
+			curP.setDesc(curSys.getSdesc());
+			curP.setSmallScore(curSys.getContent().split("-")[0]);
+			curP.setLargeScore(curSys.getContent().split("-")[1]);
+			curP.setName(curSys.getName());
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curP);
 		} catch (Exception e) {
 			e.printStackTrace();
 			eResult = new ExecuteResult(false, ERR_Desc);
@@ -175,6 +183,7 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 			Collections.sort(curGrades, curCompare);
 			BmwSyscode lastSys=null;
 			BmwSyscode curSys=new BmwSyscode();
+			curSys.setName(this.entity.getName());
 			curSys.setState(CommonConst.STATE_NORMAL);
 			curSys.setType(CommonConst.SYSCODE_TYPE_SELLER_USER_GRADE);
 			curSys.setSdesc(this.entity.getSdesc());
@@ -194,7 +203,13 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 				curSys.setContent(this.smallGrade+"-"+this.largeGrade);
 			}
 			baseService.save(curSys);
-			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curSys);
+			GradeObject curP=new GradeObject();
+			curP.setId(curSys.getSyscodeId());
+			curP.setDesc(curSys.getSdesc());
+			curP.setSmallScore(curSys.getContent().split("-")[0]);
+			curP.setLargeScore(curSys.getContent().split("-")[1]);
+			curP.setName(curSys.getName());
+			eResult = new ExecuteResult(true, CommonConst.SUCCESS_DESC,curP);
 		} catch (Exception e) {
 			e.printStackTrace();
 			eResult = new ExecuteResult(false, ERR_Desc);
@@ -359,42 +374,5 @@ public class GradeAction extends BaseAction<BmwSyscode> {
 
 	public void setLargeGrade(String largeGrade) {
 		this.largeGrade = largeGrade;
-	}
-}
-class ObjParam{
-	private String id;
-	private String name;
-	private String smallScore;
-	private String largeScore;
-	private String desc;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSmallScore() {
-		return smallScore;
-	}
-	public void setSmallScore(String smallScore) {
-		this.smallScore = smallScore;
-	}
-	public String getLargeScore() {
-		return largeScore;
-	}
-	public void setLargeScore(String largeScore) {
-		this.largeScore = largeScore;
-	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 }

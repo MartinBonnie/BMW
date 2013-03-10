@@ -150,8 +150,8 @@
 		}
 		var postData = {};
 		postData.name = $("#add_name").val().trim();
-		postData.smallGrade = $("#add_samllScore").val().trim();
-		postData.largeGrade = $("#add_largeScore").val().trim();
+		postData.smallGrade = $("#add_smallScore").val();
+		postData.largeGrade = $("#add_largeScore").val();
 		postData.sdesc = $("#add_desc").val().trim();
 		$.showAddBg(true, 1000, true);
 		if(PAGE_PARAM.curId==0) {
@@ -315,12 +315,12 @@
 			<span class="err"></span>
 		</div>
 		<div>
-			<label>等级积分上限:</label>
+			<label>积分上限:</label>
 			<input id="add_smallScore" type="text" class="text small num" onkeyup="$(this).checkIpt('price');" />
 			<span class="err"></span>
 		</div>
 		<div>
-			<label>等级积分下限:</label>
+			<label>积分下限:</label>
 			<input id="add_largeScore" type="text" class="text small num" onkeyup="$(this).checkIpt('price');" />
 			<span class="err"></span>
 		</div>
