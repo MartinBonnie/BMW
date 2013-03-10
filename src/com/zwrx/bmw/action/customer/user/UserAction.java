@@ -6,6 +6,7 @@ import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import net.sf.json.JSONObject;
 
@@ -18,11 +19,20 @@ import com.zwrx.bmw.util.MailUtils;
 
 public class UserAction extends BaseAction<BmwUser> {	
 	private static final long serialVersionUID = 1L;
+	public UserAction(){		
+	}
 	/**
 	 * 注册逻辑	
 	 * @return
 	 */
-	public String register(){				
+	public String register(){		
+		String realPath=ServletActionContext.getRequest().getServletContext().getRealPath(ServletActionContext
+				.getRequest().getRequestURI());
+		String proPath=ServletActionContext.getRequest().getContextPath();
+		realPath=realPath.replace("\\", "/");
+		proPath=proPath.replace("\\","/");
+		String basePath=realPath.substring(0, realPath.indexOf(proPath));		
+		
 		//System.out.println("注册者信息："+entity);
 		String username=entity.getUsername();
 		String password=entity.getPassword();
@@ -31,10 +41,12 @@ public class UserAction extends BaseAction<BmwUser> {
 		if(validateUser(entity)){
 			//保存用户信息
 			baseService.save(entity);
-			//发送激活邮件		
-			MailBox box=new MailBox();
+			//发送激活邮件				
 			MailInfo eml=new MailInfo(this.entity.getEmail(),this.entity.getName());
-			MailUtils.sendMail(box,eml);
+			//设置附件基础路径
+			MailUtils.basePath=basePath;
+			MailUtils.imgPath=CommonConst.UPLOAD_FILE_DIR;
+			MailUtils.sendMail(eml);
 			log.info(username+"("+name+"),注册成功！");
 			//返回注册成功页面
 			return SUCCESS;

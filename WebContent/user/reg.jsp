@@ -92,7 +92,7 @@
 		<div id="cellphoneTip">${errors.cellphone[0]}</div>
 		</li>
 		<li class="yzm"><label><span class="necessary">*</span>验证码：</label>
-		<s:textfield name="ValidKey" id="valcode" cssClass="txt"
+		<s:textfield name="vericode" id="vericode" cssClass="txt"
 			cssStyle="width:70px;" onfocus="$(this).addClass('focus')"
 			onblur="$(this).removeClass('focus')" /> <div id="valcodeTip">${errors.valcode[0]}</div><img id="verifyPic"
 			name="ValidKey" alt="验证码" class="validate-num"
@@ -205,6 +205,6 @@
 </div>
 
 <div class="shade"></div>
-<s:include value="/customer/include/nolog_footer.jsp" />
+<s:include value="/user/include/nolog_footer.jsp" />
 </body>
 </html>
