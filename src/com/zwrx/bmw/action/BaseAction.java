@@ -11,6 +11,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 import org.apache.struts2.util.ServletContextAware;
@@ -18,6 +20,8 @@ import org.hibernate.criterion.DetachedCriteria;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.util.ValueStack;
+import com.zwrx.bmw.action.customer.user.UserAction;
 import com.zwrx.bmw.common.CommonConst;
 import com.zwrx.bmw.common.PaginationSupport;
 import com.zwrx.bmw.models.BmwAdmin;
@@ -37,6 +41,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>,
 	public static final int DEFAULT_PAGESIZE = 20;
 
 	protected static final String INDEX = "index";
+	
+	protected static final String REG = "reg";
 
 	protected static final String VIEW = "view";
 
@@ -66,6 +72,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>,
 	
 	protected String actionUrl;
 
+	//log4j日志记录
 	protected final org.apache.log4j.Logger log = org.apache.log4j.Logger
 			.getLogger(this.getClass());
 
@@ -108,11 +115,13 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>,
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		return session;
 	}
-
+	public ValueStack getValueStack(){
+		return ServletActionContext.getValueStack(ServletActionContext.getRequest());
+	}
 	public HttpServletRequest getRequest() {
 		return ServletActionContext.getRequest();
 	}
-
+	
 	protected HttpServletResponse getResponse() {
 		return ServletActionContext.getResponse();
 	}

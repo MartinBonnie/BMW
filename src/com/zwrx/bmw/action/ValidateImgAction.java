@@ -53,11 +53,11 @@ public class ValidateImgAction extends BaseAction<Object> {
         Random random = new Random();   
         for (int i=0;i<155;i++)   
         {   
-         int x = random.nextInt(width);   
-         int y = random.nextInt(height);   
-                int xl = random.nextInt(12);   
-                int yl = random.nextInt(12);   
-         g.drawLine(x,y,x+xl,y+yl);   
+        	int x = random.nextInt(width);   
+        	int y = random.nextInt(height);   
+        	int xl = random.nextInt(12);   
+        	int yl = random.nextInt(12);   
+        	g.drawLine(x,y,x+xl,y+yl);   
         } 
         g.setColor(new Color(20+random.nextInt(110),20+random.nextInt(110),20+random.nextInt(110)));   
 		g.drawString(randomString.toUpperCase(), 3, 17);

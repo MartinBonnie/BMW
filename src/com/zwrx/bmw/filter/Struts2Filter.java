@@ -29,7 +29,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter;
+
+import com.opensymphony.xwork2.ActionContext;
 
 
 /**
@@ -45,10 +48,11 @@ public class Struts2Filter extends StrutsPrepareAndExecuteFilter
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		try {
+		try {			
 			HttpServletRequest req = (HttpServletRequest) request;
-			HttpServletResponse res = (HttpServletResponse) response;
+			HttpServletResponse res = (HttpServletResponse) response;			
 			String uri = req.getRequestURI();
+			//System.out.println(uri);
 			String[] notFilterDirs = notFilterDir.split(",");
 			for(int i=0;i<notFilterDirs.length;i++){
 				String notFilterDirValue = notFilterDirs[i];
@@ -58,8 +62,9 @@ public class Struts2Filter extends StrutsPrepareAndExecuteFilter
 				}
 			}
 			super.doFilter(request, response, chain);
-		} catch (Exception e) {
+		} catch (Exception e) {			
 			log.error(e);
+			e.printStackTrace();
 		}
 	}
 

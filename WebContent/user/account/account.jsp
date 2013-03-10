@@ -1,3 +1,4 @@
+<<<<<<< HEAD:WebContent/user/account.jsp
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -154,3 +155,4 @@
 <div id="foot">Copyright © 2000-2011 版权所有</div>
 </body>
 </html>
+
