@@ -180,9 +180,11 @@ public class CommonConst {
 	/**
 	 * 产品类型
 	 */
-	public static String PRODUCT_PUBLISH_WAIT = "01"; 							// 商品进入商城待审核
-	public static String PRODUCT_PUBLISH_NORMAL ="02"; 							// 审核通过
+	public static String PRODUCT_PUBLISH_INIT = "00"; 							// 发布产品
+	public static String PRODUCT_PUBLISH_NORMAL ="01"; 							// 审核通过
 	public static String PRODUCT_PUBLISH_DENY = "03"; 							// 审核失败
+	public static String PRODUCT_OFF = "04";									//产品下架
+	public static String PRODUCT_DELETE = "09";									//产品删除
 	
 	
 	/**
