@@ -6,7 +6,8 @@
     request.setCharacterEncoding("utf-8");
     response.setCharacterEncoding("utf-8");
 
-    Uploader up = new Uploader(request);
+    Uploader up = new Uploader(request);    
+    //up.setSavePath("../../resource/uploadfile"); //保存路径
     up.setSavePath("upload"); //保存路径
     String[] fileType = {".rar" , ".doc" , ".docx" , ".zip" , ".pdf" , ".txt" , ".swf", ".wmv"};  //允许的文件类型
     up.setAllowFiles(fileType);

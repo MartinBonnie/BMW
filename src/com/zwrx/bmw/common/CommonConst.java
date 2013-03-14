@@ -45,7 +45,7 @@ public class CommonConst {
 	public static String FOLDER_HTML = "html";
 	public static String FOLDER_HTML_WANGPU = "wangpu";
 	public static String FOLDER_PICTURE = "picture";
-	public static String UPLOAD_FILE_DIR = "/BMW/files/";
+	public static String UPLOAD_FILE_DIR = "/BMW/resource/uploadfile/";
 	
 	/**
 	 * 固定信息
@@ -98,7 +98,7 @@ public class CommonConst {
 	/**
 	 * 固定页面的匹配表示
 	 */
-	public static String USER_LOGIN_PAGE = "/customer/login.jsp";				//用户登录页面
+	public static String USER_LOGIN_PAGE = "/user/login.jsp";				//用户登录页面
 	public static String ADMIN_LOGIN_PAGE = "/admin/login.jsp";					//管理员登录页面
 	public static String BANNED_PAGE = "/banned.html";							//
 
