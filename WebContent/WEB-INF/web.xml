@@ -55,7 +55,13 @@
 		<init-param>
 			<param-name>notFilterDir</param-name>
 			<param-value>
-				jquery.js,Login,logout,viewPasswdQuestion,savePasswdQuestion,user/account/get_username.jsp,user/account/get_password.jsp,/updatePasswd, /modify_reg.jsp,/login.jsp,/reg.jsp,/register,/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,/userValidate,/userActivation,/getusername,/validateuser,/validateanswer,/get_username.jsp,/get_password.jsp,/validate_answer.jsp,/user/album/
+				jquery.js,Login,logout,viewPasswdQuestion,savePasswdQuestion,
+				user/account/get_username.jsp,user/account/get_password.jsp,
+				/updatePasswd,/modify_reg.jsp,/login.jsp,/reg.jsp,/register,
+				/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,
+				/userValidate,/userActivation,/getusername,/validateuser,
+				/validateanswer,/get_username.jsp,/get_password.jsp,
+				/validate_answer.jsp,/user/album/,/user/html/index.html
 			</param-value>
 		</init-param>
 	</filter>
