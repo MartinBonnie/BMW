@@ -6,8 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<!-- 配置ueditor -->
+<script type="text/javascript">
+window.UEDITOR_HOME_URL="/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/editor_all.js"></script>
 </head>
 <body>
-	<h1>Hello EveryOne</h1>
+	hello<hr>
+	<div>
+	<TEXTAREA id=editor name=editor style="width:1076px;">这里写你的初始化内容</TEXTAREA>
+	</div>
 </body>
+<script type=text/javascript>
+	//初始化ueditor
+    UE.getEditor('editor');
+</script>
 </html>

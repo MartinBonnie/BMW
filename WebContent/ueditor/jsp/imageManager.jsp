@@ -3,9 +3,10 @@
 <%@ page import="java.io.*"%>
 <%@ page import="javax.servlet.ServletContext"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
+<%@ page import="com.zwrx.bmw.common.*" %>
 <% 
     //仅做示例用，请自行修改
-	String path = "upload";
+	String path = "../.."+CommonConst.UPLOAD_FILE_DIR;
 	String imgStr ="";
 	String realpath = getRealPath(request,path)+"/"+path;
 	List<File> files = getFiles(realpath,new ArrayList());

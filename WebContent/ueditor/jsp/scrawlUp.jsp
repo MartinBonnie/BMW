@@ -10,6 +10,7 @@
     <%@ page import="java.io.FileOutputStream"%>
     <%@ page import="java.util.Date"%>
     <%@ page import="ueditor.Uploader" %>
+    <%@ page import="com.zwrx.bmw.common.*" %>
 
     <%
     request.setCharacterEncoding("utf-8");
@@ -17,7 +18,7 @@
 	
 	String param = request.getParameter("action");
     Uploader up = new Uploader(request);
-    String path = "upload";
+    String path = "../.."+CommonConst.UPLOAD_FILE_DIR;
     up.setSavePath(path);
     String[] fileType = {".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp"};
     up.setAllowFiles(fileType);

@@ -1,7 +1,8 @@
-#Fri Mar 08 16:56:32 CST 2013
+#Sat Mar 16 11:39:51 CST 2013
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/user/index.jsp=UTF-8
+encoding//WebContent/user/product/addProduct.jsp=UTF-8
 encoding//WebContent/user/product/product.jsp=UTF-8
 encoding//src/com/zwrx/bmw/models/OneMail.java=UTF-8
 encoding/<project>=UTF-8

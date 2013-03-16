@@ -7,17 +7,17 @@
 <link rel="shortcut icon" href="<s:url value="/portal/include/favicon.ico"/>" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>用户登录</title>
-<link href="<s:url value="/user/content/css/reg.css"/>" rel="stylesheet"
+<link href="<s:url value="content/css/reg.css"/>" rel="stylesheet"
 	type="text/css" />
-<script src="<s:url value="/user/content/js/jquery.js"/>"></script>
-<script src="<s:url value="/user/content/js/slider.js"/>"></script>
-<script type="text/javascript" src="<s:url value="/user/content/js/common.js"/>"></script>
-<script type="text/javascript" src="<s:url value="/user/content/js/vericode.js"/>"></script>
+<script src="<s:url value="content/js/jquery.js"/>"></script>
+<script src="<s:url value="content/js/slider.js"/>"></script>
+<script type="text/javascript" src="<s:url value="content/js/common.js"/>"></script>
+<script type="text/javascript" src="<s:url value="content/js/vericode.js"/>"></script>
 </head>
 <body>
 	<div class="wraper ">
 		<div id="wrap"><s:property value="info"/>
-			<s:include value="/user/include/nolog_head.jsp" />
+			<s:include value="/include/nolog_head.jsp" />
 			<s:if test="result!=''&&result!=null">
 				<div id="warning">${result}</div>
 			</s:if>

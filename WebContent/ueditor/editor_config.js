@@ -25,7 +25,7 @@
      * 此处配置写法适用于UEditor小组成员开发使用，外部部署用户请按照上述说明方式配置即可，建议保留下面两行，以兼容可在具体每个页面配置window.UEDITOR_HOME_URL的功能。
      */
     var tmp = location.protocol.indexOf("file")==-1 ? location.pathname : location.href;
-	
+	//alert(window.UEDITOR_HOME_URL);
     URL = window.UEDITOR_HOME_URL||tmp.substr(0,tmp.lastIndexOf("\/")+1).replace("html/","").replace("website/","");
     //URL = window.UEDITOR_HOME_URL||"/emailpro/ueditor/";	
 	//这里你可以配置成ueditor目录在您网站的相对路径或者绝对路径（指以http开头的绝对路径）
@@ -82,17 +82,16 @@
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         ,toolbars:[
-            ['fullscreen', 'source', '|', 'undo', 'redo', '|',
-                'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch','autotypeset','blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist','selectall', 'cleardoc', '|',
+            ['source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch','autotypeset','blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist','selectall', '|',
                 'rowspacingtop', 'rowspacingbottom','lineheight','|',
                 'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
                 'directionalityltr', 'directionalityrtl', 'indent', '|',
                 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|','touppercase','tolowercase','|',
                 'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright','imagecenter', '|',
-                'insertimage', 'emotion','scrawl', 'insertvideo','music','attachment', 'map', 'gmap', 'insertframe','highlightcode','webapp','pagebreak','template','background', '|',
-                'horizontal', 'date', 'time', 'spechars','snapscreen', 'wordimage', '|',
-                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',
-                'print', 'preview', 'searchreplace','help']
+                'insertimage', 'emotion','scrawl', 'attachment', 'insertframe','highlightcode','webapp','pagebreak','template','background', '|',
+                'horizontal', 'date', 'time', 'spechars', '|',
+                'inserttable', 'deletetable', 'print', 'preview', 'searchreplace']
         ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         ,labelMap:{
@@ -121,10 +120,10 @@
         //常用配置项目
         //,isShow : true    //默认显示编辑器
 
-        //,initialContent:'欢迎使用ueditor!'    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
+        ,initialContent:''    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
 
-        //,initialFrameWidth:1000  //初始化编辑器宽度,默认1000
-        //,initialFrameHeight:320  //初始化编辑器高度,默认320
+        ,initialFrameWidth:1000  //初始化编辑器宽度,默认1000
+        ,initialFrameHeight:320  //初始化编辑器高度,默认320
 
         //,autoClearinitialContent:true //是否自动清除编辑器初始内容，注意：如果focus属性设置为true,这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了
 

@@ -1,13 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台首页</title>
-<link href="content/css/css.css" rel="stylesheet" type="text/css" />
-<script src="content/js/jquery.js"></script>
-<script src="content/js/slider.js"></script>
+<link href="../content/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+window.UEDITOR_HOME_URL="/ueditor/";
+</script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/editor_all.js"></script>
+<script src="../content/js/jquery.js"></script>
+<script src="../content/js/slider.js"></script>
 <script>
 	$(function(){
+		//初始化ueditor
+		//$("#editor").css({width:"100%";height:"250px"});
+	    window.UEDITOR_CONFIG.initialFrameWidth=650;
+	    window.UEDITOR_CONFIG.initialFrameHeight=250;
+		UE.getEditor('editor');
+		
 		$("#nav li a").click(function(){
 			$("#nav li").removeClass("current");
 			$(this).parent().addClass("current")
@@ -33,66 +47,49 @@
             	<input type="text" class="txt" value="请输入关键字" /><input type="button" value="搜索"  class="btn"/>
             </div>
         	<div class="topbar">
-            	<h1>我的后台</h1><p><span>你好<em>庄程远</em></span><a href="#">退出</a><span>|</span><a href="#">返回</a><span>|</span><a href="#">管理账号</a><span>|</span><a href="#"><img src="content/images/email.png" />消息提醒（<strong>2</strong>）</a> </p>
+            	<h1>我的后台</h1><p><span>你好<em>[<s:property value="#session.bmwUser.name"/>]</em></span><a href="#">退出</a><span>|</span><a href="#">返回</a><span>|</span><a href="#">管理账号</a><span>|</span><a href="#"><img src="content/images/email.png" />消息提醒（<strong>2</strong>）</a> </p>
             </div>
             <div id="nav">
             	<div class="r">
                 	<div class="l">
                     	<ul>
-                        	<li class="current"><a href="#" title="首页"><span>首页</span></a></li>
+                        	<li class="current"><a href="../index.jsp" title="首页"><span>首页</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="产品"><span>产品</span></a></li>
+                            <li><a href="../product/product.jsp" title="产品"><span>产品</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="客户"><span>客户</span></a></li>
+                            <li><a href="../order/order.jsp" title="交易"><span>交易</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="交易"><span>交易</span></a></li>
+                            <li><a href="../news/news.jsp" title="资讯"><span>资讯</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="旺铺"><span>旺铺</span></a></li>
+                            <li><a href="../bank/bank.jsp" title="银行"><span>银行</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="资讯"><span>资讯</span></a></li>
-                            <li>|</li>
-                            <li><a href="#" title="银行"><span>银行</span></a></li>
-                            <li>|</li>
-                            <li><a href="#" title="账号"><span>账号</span></a></li>
+                            <li><a href="../account/account.jsp" title="账号"><span>账号</span></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
          </div>
         
-        
-         <div class="menu">
-         	<a href="#" class="more"><i></i>查看更多</a>
-            <ul>
-                <li><a href="#" title="首页"><img src="content/images/nav/1.png" />首页</a></li>
-                <li><a href="#" title="产品"><img src="content/images/nav/2.png" />产品</a></li>
-                <li><a href="#" title="客户"><img src="content/images/nav/3.png" />客户</a></li>
-                <li><a href="#" title="交易"><img src="content/images/nav/4.png" />交易</a></li>
-                <li><a href="#" title="旺铺"><img src="content/images/nav/5.png" />旺铺</a></li>
-                <li><a href="#" title="资讯"><img src="content/images/nav/6.png" />资讯</a></li>
-                <li><a href="#" title="银行"><img src="content/images/nav/7.png" />银行</a></li>
-                <li><a href="#" title="账号"><img src="content/images/nav/1.png" />账号</a></li>
+               
+        <div class="menu">
+            <ul>                
+                <li><a href="../product/addProduct.jsp" title="产品"><img src="../content/images/nav/cp1.png" />发布产品</a></li>
+           		<li><a href="../product/product.jsp" title="产品"><img src="../content/images/nav/cp2.png" />管理产品</a></li>
+            	<li><a href="../product/product.jsp" title="产品"><img src="../content/images/nav/cp3.png" />产品分类</a></li>
             </ul>
         </div>
-        
-        
         
         
         <div id="container"  class="clearfix">
         	<div class="sideRight">
             	<div class="title">
                     <ul>
-                        <li class="current"><a href="#"><span>发布产品</span></a></li>
-                        
+                        <li class="current"><a href="#"><span>发布产品</span></a></li>                        
                     </ul>
                 </div>
                  
                 <table class="table1">
-                	<thead>
-                    	<tr>	                             	
-                        	<th width="70">产品品牌： </th><td><select><option>NIKE</option></select></td>
-                            <th width="70">是否显示： </th><td><select><option>是</option></select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品广告<select><option>是</option></select></td>
-                        </tr>
+                	<thead>                    	
                         <tr>	                             	
                         	<th>产品类型：</th><td><select><option>普通</option></select></td>
                             <th>查看权限：</th><td><select><option>访问者可见</option></select></td>
@@ -124,11 +121,11 @@
                                     </div>
                                     <div class="picList" id="picList" >
                                     	<ul>
-                                        	<li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                            <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                            <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                            <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                            <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                        	<li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                            <li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                            <li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                            <li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                            <li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
                                             <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
                                            
                                         </ul>
@@ -137,26 +134,26 @@
                                     	<div class="area clearfix">
                                         	<ul>
                                                 <li class="current"><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a></li>
                                                
                                             </ul>
                                         </div>
                                     	 <div class="page"><a href="#">&lt;&lt;</a><a href="#">1</a><a href="#" class="current">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">&gt;&gt;</a></div>
                                         <div class="picList" >
                                             <ul>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
-                                                <li><a href="#"><img src="content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                                <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                                <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                                <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                                <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
+                                                <li><a href="#"><img src="../content/images/pic.jpg" /></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
                                                 <li><a href="#"><i>暂无图片</i></a><a href="#" class="fl"><input type="file" />上传图片</a></li>
                                                
                                             </ul>
@@ -186,7 +183,9 @@
                         </tr>
                          <tr>
                         	<th>产品描述</th>
-                            <td colspan="3"><textarea class="txt" style="width:600px; height:300px;"></textarea></td>
+                            <td colspan="3">
+                           	<textarea id=editor name=editor></textarea>
+                            </td>
                         </tr>
                         <tr>
                         	<th>&nbsp;</th>
@@ -218,6 +217,6 @@
     </div>
     
 </div>
-<div id="foot">Copyright © 2000-2011 东方五金版权所有</div>
+<div id="foot">Copyright © 2000-2011 泰斗设计室版权所有</div>
 </body>
 </html>

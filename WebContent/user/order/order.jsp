@@ -42,21 +42,17 @@
             	<div class="r">
                 	<div class="l">
                     	<ul>
-                        	<li class="current"><a href="#" title="首页"><span>首页</span></a></li>
+                        	<li><a href="../index.jsp" title="首页"><span>首页</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="产品"><span>产品</span></a></li>
+                            <li><a href="../product/product.jsp" title="产品"><span>产品</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="客户"><span>客户</span></a></li>
+                            <li class="current"><a href="../order/order.jsp" title="交易"><span>交易</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="交易"><span>交易</span></a></li>
+                            <li><a href="../news/news.jsp" title="资讯"><span>资讯</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="旺铺"><span>旺铺</span></a></li>
+                            <li><a href="../bank/bank.jsp" title="银行"><span>银行</span></a></li>
                             <li>|</li>
-                            <li><a href="#" title="资讯"><span>资讯</span></a></li>
-                            <li>|</li>
-                            <li><a href="#" title="银行"><span>银行</span></a></li>
-                            <li>|</li>
-                            <li><a href="#" title="账号"><span>账号</span></a></li>
+                            <li><a href="../account/account.jsp" title="账号"><span>账号</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,16 +61,8 @@
         
         
          <div class="menu">
-         	<a href="#" class="more"><i></i>查看更多</a>
             <ul>
-                <li><a href="../index.jsp" title="首页"><img src="../content/images/nav/1.png" />首页</a></li>
-                <li><a href="../product/product.jsp" title="产品"><img src="../content/images/nav/2.png" />产品</a></li>
-                <li><a href="../customer/customer.jsp" title="客户"><img src="../content/images/nav/3.png" />客户</a></li>
                 <li><a href="../order/order.jsp" title="交易"><img src="../content/images/nav/4.png" />交易</a></li>
-                <li><a href="../shop/shop.jsp" title="旺铺"><img src="../content/images/nav/5.png" />旺铺</a></li>
-                <li><a href="../news/news.jsp" title="资讯"><img src="../content/images/nav/6.png" />资讯</a></li>
-                <li><a href="../bank/bank.jsp" title="银行"><img src="../content/images/nav/7.png" />银行</a></li>
-                <li><a href="../account/account.jsp" title="账号"><img src="../content/images/nav/1.png" />账号</a></li>
             </ul>
         </div>
         

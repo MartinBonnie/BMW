@@ -34,7 +34,7 @@ public class MailInfo {
 		this.copycc="";
 		this.filepath="";
 		this.to=to;
-		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/BMW/resource/uploadfile/main.jpg\""+
+		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/resource/uploadfile/main.jpg\""+
 				" width=\"150px\" height=\"150px\" alt=\"点我啊亲\"/>"+
 				"<hr/><p><a href=\"http://localhost/BMW/user/\" >点击链接激活</a></p><br/>"				
 				+"该邮件不必回复。"+"</body></html>";
@@ -46,7 +46,7 @@ public class MailInfo {
 		//this.copycc="";
 		//this.filepath="";
 		this.to=to;
-		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/BMW/resource/uploadfile/main.jpg\""+
+		this.body="<html><body>欢迎你注册斗价网！<br/><img src=\"/resource/uploadfile/main.jpg\""+
 				" width=\"150px\" height=\"150px\" alt=\"点我啊亲\"/>"+
 				"<hr/><p><a href=\"http://localhost/BMW/user/\" >点击链接激活</a></p><br/>"				
 				+"该邮件不必回复。"+"</body></html>";

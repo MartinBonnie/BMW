@@ -45,7 +45,7 @@ public class CommonConst {
 	public static String FOLDER_HTML = "html";
 	public static String FOLDER_HTML_WANGPU = "wangpu";
 	public static String FOLDER_PICTURE = "picture";
-	public static String UPLOAD_FILE_DIR = "/BMW/resource/uploadfile/";
+	public static String UPLOAD_FILE_DIR = "/resource/uploadfile/";
 	
 	/**
 	 * 固定信息

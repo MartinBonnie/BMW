@@ -60,8 +60,8 @@
 				/updatePasswd,/modify_reg.jsp,/login.jsp,/reg.jsp,/register,
 				/css/,/images/,/js/,/veriImg,/login,/style,/logout,/emailValidate,
 				/userValidate,/userActivation,/getusername,/validateuser,
-				/validateanswer,/get_username.jsp,/get_password.jsp,
-				/validate_answer.jsp,/user/album/,/user/html/index.html
+				/validateanswer,/get_username.jsp,/get_password.jsp,/css/,/js/,
+				/validate_answer.jsp,/user/album/,/user/html/index.html,/ueditor/
 			</param-value>
 		</init-param>
 	</filter>
@@ -120,7 +120,7 @@
 		<init-param>
 			<param-name>notFilterDir</param-name>
 			<param-value>
-				/service/,/mvc/,/pay/
+				/service/,/mvc/,/pay/,/ueditor/
 			</param-value>
 		</init-param>
 	</filter>

@@ -1,12 +1,15 @@
     <%@ page language="java" contentType="text/html; charset=utf-8"
         pageEncoding="utf-8"%>
     <%@ page import="ueditor.Uploader" %>
+    <%@ page import="com.zwrx.bmw.common.*" %>
 
     <%
     request.setCharacterEncoding("utf-8");
 	response.setCharacterEncoding("utf-8");
     Uploader up = new Uploader(request);
-    up.setSavePath("upload");
+    //up.setSavePath("upload");
+    String filePath="../.."+CommonConst.UPLOAD_FILE_DIR;
+    up.setSavePath(filePath);
     String[] fileType = {".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp"};
     up.setAllowFiles(fileType);
     up.setMaxSize(10000); //单位KB
